@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel local de administración AgentHub">
+  <title>AgentHub | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 font-['Inter'] text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-50">
+  <div id="drawer-backdrop" class="fixed inset-0 z-40 hidden bg-slate-950/50 opacity-0 transition-opacity duration-200 lg:hidden" aria-hidden="true"></div>
+
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 flex w-64 -translate-x-full flex-col border-r border-slate-200 bg-white transition-transform duration-200 dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0" aria-label="Navegación principal">
+    <div class="flex h-16 shrink-0 items-center gap-3 border-b border-slate-200 px-5 dark:border-slate-800">
+      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white" aria-hidden="true"><span class="material-symbols-outlined text-[22px]">hub</span></span>
+      <span class="text-lg font-bold tracking-tight">AgentHub</span>
+      <button id="drawer-close" class="ml-auto flex h-10 w-10 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden" type="button" aria-label="Cerrar menú"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="px-4 pb-3 pt-5"><p class="px-3 text-[11px] font-semibold uppercase text-slate-400">Administración</p></div>
+    <nav id="primary-nav" class="flex-1 space-y-1 overflow-y-auto px-3 pb-5" aria-label="Secciones">
+      <button type="button" data-view="dashboard" class="nav-link flex min-h-11 w-full items-center gap-3 rounded-lg border-l-2 px-3 text-left text-sm font-medium transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">space_dashboard</span><span>Dashboard</span></button>
+      <button type="button" data-view="usuarios" class="nav-link flex min-h-11 w-full items-center gap-3 rounded-lg border-l-2 px-3 text-left text-sm font-medium transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">group</span><span>Usuarios</span></button>
+      <button type="button" data-view="agentes" class="nav-link flex min-h-11 w-full items-center gap-3 rounded-lg border-l-2 px-3 text-left text-sm font-medium transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">smart_toy</span><span>Agentes</span></button>
+      <button type="button" data-view="skills" class="nav-link flex min-h-11 w-full items-center gap-3 rounded-lg border-l-2 px-3 text-left text-sm font-medium transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">psychology</span><span>Skills</span></button>
+      <button type="button" data-view="contrataciones" class="nav-link flex min-h-11 w-full items-center gap-3 rounded-lg border-l-2 px-3 text-left text-sm font-medium transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">receipt_long</span><span>Contrataciones</span></button>
+      <button type="button" data-view="errores" class="nav-link flex min-h-11 w-full items-center gap-3 rounded-lg border-l-2 px-3 text-left text-sm font-medium transition-colors"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">error</span><span>Errores</span></button>
+    </nav>
+    <div class="border-t border-slate-200 p-4 dark:border-slate-800">
+      <div class="flex items-center gap-3 rounded-lg bg-slate-50 p-3 dark:bg-slate-800/70">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700 dark:bg-blue-950 dark:text-blue-300" aria-hidden="true">AH</span>
+        <div class="min-w-0"><p class="truncate text-sm font-semibold">Administrador</p><p class="text-xs text-slate-500 dark:text-slate-400">Panel local</p></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="min-h-screen lg:pl-64">
+    <header class="fixed inset-x-0 top-0 z-30 flex h-16 items-center justify-between border-b border-slate-200 bg-white/95 px-3 backdrop-blur md:px-5 lg:left-64 lg:px-8 dark:border-slate-800 dark:bg-slate-900/95">
+      <div class="flex min-w-0 items-center gap-2 md:gap-3">
+        <button id="drawer-open" type="button" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false"><span class="material-symbols-outlined">menu</span></button>
+        <div class="hidden items-center gap-2 text-sm text-slate-500 sm:flex dark:text-slate-400"><span class="font-semibold text-slate-900 dark:text-slate-100">AgentHub</span><span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span></div>
+        <h1 id="view-title" class="truncate text-base font-semibold md:text-lg">Dashboard</h1>
+      </div>
+      <button id="theme-toggle" type="button" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-600 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Activar modo oscuro" aria-pressed="false" title="Cambiar tema"><span id="theme-icon" class="material-symbols-outlined" aria-hidden="true">dark_mode</span></button>
+    </header>
+
+    <main id="main-content" class="min-h-screen px-3 pb-10 pt-20 md:px-5 lg:px-8">
+      <div id="view-root" class="mx-auto w-full max-w-[1440px]"></div>
+    </main>
+  </div>
+
+  <div id="modal-root" class="fixed inset-0 z-[60] hidden items-center justify-center overflow-y-auto bg-slate-950/60 p-3 backdrop-blur-[2px] sm:p-6" aria-hidden="true"></div>
+  <div id="toast" class="pointer-events-none fixed bottom-5 left-1/2 z-[70] flex -translate-x-1/2 translate-y-3 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-800 opacity-0 shadow-xl transition-all duration-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100" role="status" aria-live="polite"><span class="material-symbols-outlined text-lg text-emerald-600 dark:text-emerald-400" aria-hidden="true">check_circle</span><span id="toast-message"></span></div>
+
+  <script>
+    const navigation = [
+      { id: 'dashboard', label: 'Dashboard' },
+      { id: 'usuarios', label: 'Usuarios' },
+      { id: 'agentes', label: 'Agentes' },
+      { id: 'skills', label: 'Skills' },
+      { id: 'contrataciones', label: 'Contrataciones' },
+      { id: 'errores', label: 'Errores' }
+    ];
+
+    const state = {
+      currentView: 'dashboard',
+      openDropdown: null,
+      expandedAgents: new Set(),
+      modal: null,
+      users: [
+        { id: 'usr-001', name: 'Marta Ruiz', email: 'marta@northstar.io', plan: 'Empresa', status: 'Activo', registeredAt: '2025-01-14', agentIds: ['agt-001', 'agt-004'] },
+        { id: 'usr-002', name: 'Daniel Vega', email: 'daniel@lumina.es', plan: 'Profesional', status: 'Activo', registeredAt: '2025-02-03', agentIds: ['agt-002'] },
+        { id: 'usr-003', name: 'Lucia Torres', email: 'lucia@verde.tech', plan: 'Profesional', status: 'Activo', registeredAt: '2025-03-19', agentIds: ['agt-003'] },
+        { id: 'usr-004', name: 'Carlos Mendez', email: 'carlos@atlas.co', plan: 'Basico', status: 'Suspendido', registeredAt: '2025-04-08', agentIds: [] },
+        { id: 'usr-005', name: 'Elena Soto', email: 'elena@orionlabs.es', plan: 'Empresa', status: 'Activo', registeredAt: '2025-05-21', agentIds: [] }
+      ],
+      agents: [
+        { id: 'agt-001', name: 'Atlas Research', ownerId: 'usr-001', ownerName: 'Marta Ruiz', status: 'Activo', skillIds: ['skl-001', 'skl-002', 'skl-003'], systemPrompt: 'Eres un agente de investigacion que usa fuentes verificables y devuelve resumenes claros.' },
+        { id: 'agt-002', name: 'Orion Support', ownerId: 'usr-002', ownerName: 'Daniel Vega', status: 'Fallando', skillIds: ['skl-001', 'skl-004'], systemPrompt: 'Eres un agente de soporte que sigue procedimientos internos y escala incidencias ambiguas.' },
+        { id: 'agt-003', name: 'Lumina Scheduler', ownerId: 'usr-003', ownerName: 'Lucia Torres', status: 'Activo', skillIds: ['skl-002', 'skl-003'], systemPrompt: 'Eres un agente que organiza reuniones y valida conflictos de disponibilidad.' },
+        { id: 'agt-004', name: 'Northstar Operations', ownerId: 'usr-001', ownerName: 'Marta Ruiz', status: 'Activo', skillIds: ['skl-001'], systemPrompt: 'Eres un agente operativo que monitorea tareas y automatiza flujos aprobados.' }
+      ],
+      skills: [
+        { id: 'skl-001', name: 'Navegacion web', description: 'Busca informacion, navega paginas y extrae datos publicos de forma controlada.', fullDescription: 'Busca informacion, navega paginas y extrae datos publicos de forma controlada. Organiza los hallazgos con referencias verificables y evita realizar acciones fuera del alcance autorizado.', iconKey: 'travel_explore' },
+        { id: 'skl-002', name: 'Lectura de documentos', description: 'Lee archivos, resume documentos y extrae campos relevantes.', fullDescription: 'Lee archivos, resume documentos y extrae campos relevantes para facilitar la revision de informacion estructurada y no estructurada.', iconKey: 'description' },
+        { id: 'skl-003', name: 'Gestion de calendario', description: 'Consulta disponibilidad y administra eventos en calendarios autorizados.', fullDescription: 'Consulta disponibilidad y administra eventos dentro de calendarios autorizados, evitando conflictos y comunicando los cambios realizados.', iconKey: 'calendar_month' },
+        { id: 'skl-004', name: 'Automatizacion', description: 'Ejecuta tareas repetibles y flujos definidos por el administrador.', fullDescription: 'Ejecuta tareas repetibles y flujos definidos por el administrador. Cada automatizacion se limita a procedimientos aprobados.', iconKey: 'bolt' }
+      ],
+      contracts: [
+        { id: 'con-001', clientName: 'Northstar S.A.', agentId: 'agt-001', agentName: 'Atlas Research', skillNames: ['Navegacion web', 'Lectura de documentos', 'Gestion de calendario'], startDate: '2026-01-01', endDate: '2026-03-31', status: 'Activo', breakdown: [{ name: 'Navegacion web', amount: 300 }, { name: 'Lectura de documentos', amount: 250 }, { name: 'Gestion de calendario', amount: 200 }], total: 750 },
+        { id: 'con-002', clientName: 'Lumina Studio', agentId: 'agt-002', agentName: 'Orion Support', skillNames: ['Navegacion web', 'Automatizacion'], startDate: '2026-02-01', endDate: '2026-04-30', status: 'Activo', breakdown: [{ name: 'Navegacion web', amount: 300 }, { name: 'Automatizacion', amount: 350 }], total: 650 },
+        { id: 'con-003', clientName: 'Verde Tecnologias', agentId: 'agt-003', agentName: 'Lumina Scheduler', skillNames: ['Lectura de documentos', 'Gestion de calendario'], startDate: '2026-03-01', endDate: '2026-05-31', status: 'Activo', breakdown: [{ name: 'Lectura de documentos', amount: 250 }, { name: 'Gestion de calendario', amount: 200 }], total: 450 },
+        { id: 'con-004', clientName: 'Orion Labs', agentId: 'agt-004', agentName: 'Northstar Operations', skillNames: ['Navegacion web'], startDate: '2026-04-01', endDate: '2026-06-30', status: 'Activo', breakdown: [{ name: 'Navegacion web', amount: 300 }], total: 300 }
+      ],
+      errors: [
+        { id: 'err-001', timestamp: '2026-11-21 09:42:18', agentId: 'agt-002', agentName: 'Orion Support', type: 'Critico', severity: 'Alta', briefDescription: 'Timeout al ejecutar el flujo de automatizacion.', description: 'El flujo de automatizacion supero el tiempo de espera al procesar una solicitud de soporte.', trace: 'Error: AutomationFlowTimeout\n  at executeAutomation (orion/automation.js:84:12)\n  at processSupportRequest (orion/support.js:132:7)\n  at async handleQueueItem (runtime/queue.js:51:5)', status: 'Pendiente' },
+        { id: 'err-002', timestamp: '2026-11-21 09:38:03', agentId: 'agt-001', agentName: 'Atlas Research', type: 'Advertencia', severity: 'Media', briefDescription: 'La fuente externa devolvio una respuesta incompleta.', description: 'Una fuente consultada devolvio menos contenido del esperado. El resumen se completo con las fuentes disponibles.', trace: 'Warning: PartialSourceResponse\n  at collectSourceContent (atlas/sources.js:112:9)\n  at async buildResearchSummary (atlas/research.js:207:5)', status: 'Pendiente' },
+        { id: 'err-003', timestamp: '2026-11-21 09:15:44', agentId: 'agt-003', agentName: 'Lumina Scheduler', type: 'Informativo', severity: 'Baja', briefDescription: 'Reintento completado al consultar disponibilidad.', description: 'La consulta de disponibilidad se completo correctamente despues de un reintento.', trace: 'Info: AvailabilityRetrySucceeded\n  at retryAvailabilityLookup (lumina/calendar.js:63:11)\n  at async checkScheduleConflicts (lumina/scheduler.js:148:3)', status: 'Resuelto' },
+        { id: 'err-004', timestamp: '2026-11-21 08:57:20', agentId: 'agt-004', agentName: 'Northstar Operations', type: 'Advertencia', severity: 'Media', briefDescription: 'Limite de solicitudes alcanzado temporalmente.', description: 'El proveedor externo aplico un limite temporal de solicitudes. La tarea queda disponible para un nuevo intento.', trace: 'Warning: RequestLimitReached\n  at checkProviderQuota (northstar/provider.js:98:13)\n  at async runApprovedTask (northstar/operations.js:174:5)', status: 'Pendiente' },
+        { id: 'err-005', timestamp: '2026-11-21 08:31:09', agentId: 'agt-002', agentName: 'Orion Support', type: 'Critico', severity: 'Alta', briefDescription: 'Fallo de autenticacion al usar una conexion aprobada.', description: 'La conexion aprobada rechazo la autenticacion durante el procesamiento de una tarea.', trace: 'Error: ApprovedConnectionAuthenticationFailed\n  at authenticateApprovedConnection (orion/connections.js:41:15)\n  at async executeSupportAction (orion/actions.js:119:7)', status: 'Pendiente' },
+        { id: 'err-006', timestamp: '2026-11-20 18:22:51', agentId: 'agt-001', agentName: 'Atlas Research', type: 'Informativo', severity: 'Baja', briefDescription: 'Sesion de navegacion cerrada correctamente.', description: 'La sesion de navegacion termino y libero sus recursos locales correctamente.', trace: 'Info: BrowserSessionClosed\n  at closeResearchSession (atlas/browser.js:229:9)\n  at async finishResearchTask (atlas/research.js:301:5)', status: 'Resuelto' }
+      ]
+    };
+
+    const viewRoot = document.getElementById('view-root');
+    const modalRoot = document.getElementById('modal-root');
+    const sidebar = document.getElementById('sidebar');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+    let focusReturnSelector = null;
+    let toastTimer = null;
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+    }
+
+    function formatMoney(value) {
+      return `EUR ${Number(value).toLocaleString('es-ES')}`;
+    }
+
+    function formatDate(value) {
+      const [year, month, day] = value.split('-');
+      return `${day}/${month}/${year}`;
+    }
+
+    function getSkillAgents(skillId) {
+      return state.agents.filter(agent => agent.skillIds.includes(skillId));
+    }
+
+    function badgeClasses(value) {
+      const classes = {
+        Activo: 'bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-400/10 dark:text-emerald-300 dark:ring-emerald-400/20',
+        Suspendido: 'bg-red-50 text-red-700 ring-red-600/20 dark:bg-red-400/10 dark:text-red-300 dark:ring-red-400/20',
+        Inactivo: 'bg-slate-100 text-slate-700 ring-slate-600/20 dark:bg-slate-700/60 dark:text-slate-300 dark:ring-slate-500/30',
+        Fallando: 'bg-red-50 text-red-700 ring-red-600/20 dark:bg-red-400/10 dark:text-red-300 dark:ring-red-400/20',
+        Critico: 'bg-red-50 text-red-700 ring-red-600/20 dark:bg-red-400/10 dark:text-red-300 dark:ring-red-400/20',
+        Advertencia: 'bg-amber-50 text-amber-800 ring-amber-600/20 dark:bg-amber-400/10 dark:text-amber-200 dark:ring-amber-400/20',
+        Informativo: 'bg-blue-50 text-blue-700 ring-blue-600/20 dark:bg-blue-400/10 dark:text-blue-300 dark:ring-blue-400/20',
+        Pendiente: 'bg-amber-50 text-amber-800 ring-amber-600/20 dark:bg-amber-400/10 dark:text-amber-200 dark:ring-amber-400/20',
+        Resuelto: 'bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-400/10 dark:text-emerald-300 dark:ring-emerald-400/20'
+      };
+      return classes[value] || 'bg-slate-100 text-slate-700 ring-slate-600/20 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-500/30';
+    }
+
+    function badge(value) {
+      return `<span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${badgeClasses(value)}">${escapeHtml(value)}</span>`;
+    }
+
+    function sectionHeading(title, eyebrow, description = '') {
+      return `<div class="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p class="mb-1 text-xs font-semibold uppercase text-blue-700 dark:text-blue-300">${escapeHtml(eyebrow)}</p><h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">${escapeHtml(title)}</h2>${description ? `<p class="mt-1 max-w-3xl text-sm text-slate-600 dark:text-slate-400">${escapeHtml(description)}</p>` : ''}</div></div>`;
+    }
+
+    function actionMenu(type, id, label) {
+      const key = `${type}:${id}`;
+      const expanded = state.openDropdown === key;
+      return `<div class="relative shrink-0"><button type="button" class="flex h-10 w-10 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white" data-dropdown-trigger="${escapeHtml(key)}" aria-label="Acciones para ${escapeHtml(label)}" aria-haspopup="menu" aria-expanded="${expanded}"><span class="material-symbols-outlined" aria-hidden="true">more_vert</span></button><div class="${expanded ? 'absolute' : 'hidden'} right-0 top-11 z-40 w-48 rounded-lg border border-slate-200 bg-white p-1 shadow-xl dark:border-slate-700 dark:bg-slate-800" role="menu" aria-label="Acciones para ${escapeHtml(label)}">${menuItems(type, id)}</div></div>`;
+    }
+
+    function menuItems(type, id) {
+      const options = {
+        user: [['detail', 'visibility', 'Ver detalle'], ['delete', 'delete', 'Eliminar']],
+        agent: [['configure', 'tune', 'Configurar'], ['delete', 'delete', 'Eliminar']],
+        skill: [['detail', 'visibility', 'Ver detalle'], ['delete', 'delete', 'Eliminar']],
+        contract: [['detail', 'visibility', 'Ver detalle']],
+        error: [['detail', 'visibility', 'Ver detalle'], ['resolve', 'task_alt', 'Marcar como resuelto']]
+      }[type];
+      const error = type === 'error' ? state.errors.find(item => item.id === id) : null;
+      return options.map(([action, icon, label]) => {
+        const disabled = action === 'resolve' && error?.status === 'Resuelto';
+        const color = action === 'delete' ? 'text-red-600 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/40' : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700';
+        return `<button type="button" role="menuitem" data-menu-action="${action}" data-record-type="${type}" data-record-id="${escapeHtml(id)}" class="flex min-h-10 w-full items-center gap-2 rounded-md px-3 text-left text-sm ${disabled ? 'cursor-not-allowed opacity-45' : color}" ${disabled ? 'disabled aria-disabled="true"' : ''}><span class="material-symbols-outlined text-lg" aria-hidden="true">${icon}</span>${label}</button>`;
+      }).join('');
+    }
+
+    function emptyState(message) {
+      return `<div class="rounded-xl border border-dashed border-slate-300 bg-white px-5 py-12 text-center dark:border-slate-700 dark:bg-slate-900"><span class="material-symbols-outlined mb-2 text-3xl text-slate-400" aria-hidden="true">inbox</span><p class="font-medium text-slate-700 dark:text-slate-200">${escapeHtml(message)}</p></div>`;
+    }
+
+    function renderDashboard() {
+      const activeAgents = state.agents.filter(agent => agent.status === 'Activo').length;
+      const failingAgents = state.agents.filter(agent => agent.status === 'Fallando').length;
+      const cards = [
+        { label: 'Ingresos del mes', value: 'EUR 48.250', icon: 'payments', tone: 'text-blue-700 bg-blue-50 dark:text-blue-300 dark:bg-blue-400/10' },
+        { label: 'Perdidas por descuentos', value: 'EUR 3.120', icon: 'confirmation_number', tone: 'text-amber-700 bg-amber-50 dark:text-amber-300 dark:bg-amber-400/10' },
+        { label: 'Agentes activos', value: activeAgents, icon: 'smart_toy', tone: 'text-emerald-700 bg-emerald-50 dark:text-emerald-300 dark:bg-emerald-400/10' },
+        { label: 'Agentes fallando', value: failingAgents, icon: 'warning', tone: 'text-red-700 bg-red-50 dark:text-red-300 dark:bg-red-400/10' }
+      ];
+      return `${sectionHeading('Dashboard', 'Consola central', 'Resumen de actividad y estado de los agentes.')}
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">${cards.map(card => `<article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"><div class="flex items-start justify-between gap-3"><div><p class="text-sm font-medium text-slate-600 dark:text-slate-400">${card.label}</p><p class="mt-3 text-3xl font-bold tabular-nums">${card.value}</p></div><span class="flex h-11 w-11 items-center justify-center rounded-lg ${card.tone}"><span class="material-symbols-outlined text-2xl" aria-hidden="true">${card.icon}</span></span></div></article>`).join('')}</div>
+        <section class="mt-6 flex min-h-[260px] flex-col items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-100/70 px-5 text-center dark:border-slate-700 dark:bg-slate-900/70"><span class="material-symbols-outlined mb-3 text-3xl text-blue-600 dark:text-blue-400" aria-hidden="true">monitoring</span><h3 class="text-lg font-semibold">Actividad semanal</h3><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Datos de ejemplo</p></section>`;
+    }
+
+    function renderUsers() {
+      const mobileCards = state.users.map(user => `<article class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900"><div class="flex min-w-0 items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300" aria-hidden="true">${escapeHtml(user.name.split(' ').map(part => part[0]).join(''))}</span><div class="flex min-w-0 flex-1 items-start justify-between gap-2"><div class="min-w-0"><h3 class="break-words font-semibold">${escapeHtml(user.name)}</h3><p class="mt-1 break-all text-sm text-slate-600 dark:text-slate-400">${escapeHtml(user.email)}</p></div><div class="shrink-0">${actionMenu('user', user.id, user.name)}</div></div></div><dl class="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-3 dark:border-slate-800"><div><dt class="text-xs text-slate-500 dark:text-slate-400">Plan</dt><dd class="mt-1 text-sm font-medium">${escapeHtml(user.plan)}</dd></div><div><dt class="text-xs text-slate-500 dark:text-slate-400">Estado</dt><dd class="mt-1">${badge(user.status)}</dd></div></dl></article>`).join('');
+      const rows = state.users.map(user => `<tr class="border-t border-slate-100 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60"><td class="whitespace-nowrap px-4 py-4"><div class="flex items-center gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-700 dark:bg-blue-950 dark:text-blue-300" aria-hidden="true">${escapeHtml(user.name.split(' ').map(part => part[0]).join(''))}</span><span class="font-semibold">${escapeHtml(user.name)}</span></div></td><td class="px-4 py-4 text-sm text-slate-600 dark:text-slate-300">${escapeHtml(user.email)}</td><td class="px-4 py-4 text-sm">${escapeHtml(user.plan)}</td><td class="px-4 py-4">${badge(user.status)}</td><td class="relative px-4 py-3 text-right">${actionMenu('user', user.id, user.name)}</td></tr>`).join('');
+      return `${sectionHeading('Usuarios', 'Gestión de usuarios', 'Cuentas locales registradas en AgentHub.')}
+        <div class="space-y-3 md:hidden">${mobileCards || emptyState('No hay usuarios disponibles')}</div>
+        <div class="hidden overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 md:block"><div class="overflow-x-auto"><table class="w-full min-w-[720px] border-collapse text-left"><thead class="bg-slate-50 text-xs font-semibold uppercase text-slate-500 dark:bg-slate-800/80 dark:text-slate-400"><tr><th scope="col" class="px-4 py-3">Nombre</th><th scope="col" class="px-4 py-3">Email</th><th scope="col" class="px-4 py-3">Plan</th><th scope="col" class="px-4 py-3">Estado</th><th scope="col" class="w-20 px-4 py-3 text-right">Acciones</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="px-4 py-8 text-center text-sm text-slate-500">No hay usuarios disponibles</td></tr>'}</tbody></table></div></div>`;
+    }
+
+    function renderAgents() {
+      if (!state.agents.length) return `${sectionHeading('Agentes', 'Gestión de agentes')}${emptyState('No hay agentes disponibles')}`;
+      const cards = state.agents.map(agent => {
+        const expanded = state.expandedAgents.has(agent.id);
+        const skillItems = agent.skillIds.map(id => state.skills.find(skill => skill.id === id)).filter(Boolean);
+        return `<article class="overflow-visible rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"><div class="flex items-start gap-3 p-4 sm:items-center sm:p-5"><div class="flex min-w-0 flex-1 items-start gap-3"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-400/10 dark:text-blue-300"><span class="material-symbols-outlined text-2xl" aria-hidden="true">smart_toy</span></span><div class="min-w-0 flex-1"><div class="flex min-w-0 flex-wrap items-center gap-2"><h3 class="min-w-0 break-words font-semibold">${escapeHtml(agent.name)}</h3>${badge(agent.status)}</div><p class="mt-1 break-words text-sm text-slate-600 dark:text-slate-400">Propietario: <span class="font-medium text-slate-800 dark:text-slate-200">${escapeHtml(agent.ownerName)}</span></p></div></div><div class="shrink-0">${actionMenu('agent', agent.id, agent.name)}</div></div><div class="px-4 pb-4 sm:px-5"><button type="button" class="flex min-h-10 w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-200 dark:hover:bg-slate-800" data-accordion="${escapeHtml(agent.id)}" aria-expanded="${expanded}" aria-controls="agent-skills-${escapeHtml(agent.id)}"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg text-blue-600 dark:text-blue-400" aria-hidden="true">bolt</span>Skills <span class="text-slate-500 dark:text-slate-400">(${skillItems.length})</span></span><span class="material-symbols-outlined transition-transform duration-200 ${expanded ? 'rotate-180' : ''}" aria-hidden="true">expand_more</span></button><div id="agent-skills-${escapeHtml(agent.id)}" class="grid grid-cols-1 gap-2 overflow-hidden transition-all duration-300 md:grid-cols-2 ${expanded ? 'mt-3 max-h-96 opacity-100' : 'max-h-0 opacity-0'}">${skillItems.length ? skillItems.map(skill => `<div class="flex items-start gap-3 rounded-lg border border-slate-100 bg-white p-3 dark:border-slate-800 dark:bg-slate-950"><span class="material-symbols-outlined text-xl text-blue-600 dark:text-blue-400" aria-hidden="true">${escapeHtml(skill.iconKey)}</span><div class="min-w-0"><p class="break-words text-sm font-medium">${escapeHtml(skill.name)}</p><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">${escapeHtml(skill.description)}</p></div></div>`).join('') : '<p class="text-sm text-slate-500 dark:text-slate-400">Sin skills asociadas.</p>'}</div></div></article>`;
+      }).join('');
+      return `${sectionHeading('Agentes', 'Gestión de agentes', 'Propietario, estado y capacidades asociadas.')}
+        <div class="space-y-4">${cards}</div>`;
+    }
+
+    function renderSkills() {
+      const intro = `<section class="mb-6 rounded-xl border border-blue-100 bg-blue-50/70 p-4 dark:border-blue-900/60 dark:bg-blue-950/30"><div class="flex items-start gap-3"><span class="material-symbols-outlined mt-0.5 text-xl text-blue-700 dark:text-blue-300" aria-hidden="true">auto_awesome</span><p class="text-sm leading-6 text-slate-700 dark:text-slate-300">Una skill es una capacidad configurada que amplía las acciones de un agente, como navegar por la web, leer documentos, gestionar calendarios o automatizar tareas.</p></div></section>`;
+      if (!state.skills.length) return `${sectionHeading('Skills', 'Catálogo de capacidades')}${intro}${emptyState('No hay skills disponibles')}`;
+      const cards = state.skills.map(skill => {
+        const linkedAgents = getSkillAgents(skill.id);
+        return `<article class="flex min-w-0 flex-col justify-between rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5 dark:border-slate-800 dark:bg-slate-900"><div><div class="flex min-w-0 items-start gap-3"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-400/10 dark:text-blue-300"><span class="material-symbols-outlined text-2xl" aria-hidden="true">${escapeHtml(skill.iconKey)}</span></span><div class="min-w-0 flex-1"><h3 class="break-words pt-1 text-base font-semibold sm:text-lg">${escapeHtml(skill.name)}</h3></div><div class="shrink-0">${actionMenu('skill', skill.id, skill.name)}</div></div><p class="mt-3 break-words text-sm leading-6 text-slate-600 dark:text-slate-400">${escapeHtml(skill.description)}</p></div><div class="mt-5 flex items-center justify-between gap-2 border-t border-slate-100 pt-4 dark:border-slate-800"><span class="text-sm text-slate-500 dark:text-slate-400">Agentes habilitados</span><span class="shrink-0 rounded-md bg-slate-100 px-2.5 py-1 text-sm font-semibold tabular-nums dark:bg-slate-800">${linkedAgents.length}</span></div></article>`;
+      }).join('');
+      return `${sectionHeading('Skills', 'Catálogo de capacidades')}${intro}<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">${cards}</div>`;
+    }
+
+    function renderContracts() {
+      const mobileCards = state.contracts.map(contract => `<article class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900"><div class="flex min-w-0 items-start gap-3"><div class="min-w-0 flex-1"><h3 class="break-words font-semibold">${escapeHtml(contract.clientName)}</h3><p class="mt-1 font-mono text-xs text-slate-500 dark:text-slate-400">${escapeHtml(contract.id)}</p></div><div class="shrink-0">${actionMenu('contract', contract.id, contract.clientName)}</div></div><dl class="mt-4 space-y-3 border-t border-slate-100 pt-3 dark:border-slate-800"><div><dt class="text-xs text-slate-500 dark:text-slate-400">Agente alquilado</dt><dd class="mt-1 break-words text-sm font-medium">${escapeHtml(contract.agentName)}</dd></div><div><dt class="text-xs text-slate-500 dark:text-slate-400">Skills contratadas</dt><dd class="mt-1 flex flex-wrap gap-1.5">${contract.skillNames.map(name => `<span class="max-w-full break-words rounded-md bg-slate-100 px-2 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200">${escapeHtml(name)}</span>`).join('')}</dd></div><div class="grid grid-cols-2 gap-3"><div><dt class="text-xs text-slate-500 dark:text-slate-400">Inicio</dt><dd class="mt-1 text-sm tabular-nums">${formatDate(contract.startDate)}</dd></div><div><dt class="text-xs text-slate-500 dark:text-slate-400">Finalización</dt><dd class="mt-1 text-sm tabular-nums">${formatDate(contract.endDate)}</dd></div></div><div class="flex items-center justify-between border-t border-slate-100 pt-3 dark:border-slate-800"><dt class="text-sm text-slate-500 dark:text-slate-400">Importe total</dt><dd class="text-base font-bold tabular-nums">${formatMoney(contract.total)}</dd></div></dl></article>`).join('');
+      const rows = state.contracts.map(contract => `<tr class="border-t border-slate-100 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60"><td class="whitespace-nowrap px-4 py-4 font-medium">${escapeHtml(contract.clientName)}</td><td class="whitespace-nowrap px-4 py-4 text-sm">${escapeHtml(contract.agentName)}</td><td class="max-w-[360px] px-4 py-4 text-sm text-slate-600 dark:text-slate-300">${contract.skillNames.map(name => `<span class="mr-1 inline-block whitespace-nowrap">${escapeHtml(name)}${contract.skillNames.indexOf(name) < contract.skillNames.length - 1 ? ',' : ''}</span>`).join(' ')}</td><td class="whitespace-nowrap px-4 py-4 text-sm tabular-nums">${formatDate(contract.startDate)}</td><td class="whitespace-nowrap px-4 py-4 text-sm tabular-nums">${formatDate(contract.endDate)}</td><td class="whitespace-nowrap px-4 py-4 text-sm font-semibold tabular-nums">${formatMoney(contract.total)}</td><td class="relative px-4 py-3 text-right">${actionMenu('contract', contract.id, contract.clientName)}</td></tr>`).join('');
+      return `${sectionHeading('Contrataciones', 'Contratos de agentes', 'Periodos, skills contratadas e importes acordados.')}
+        <div class="space-y-3 md:hidden">${mobileCards}</div>
+        <div class="hidden overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 md:block"><div class="overflow-x-auto"><table class="w-full min-w-[1080px] border-collapse text-left"><thead class="bg-slate-50 text-xs font-semibold uppercase text-slate-500 dark:bg-slate-800/80 dark:text-slate-400"><tr><th scope="col" class="px-4 py-3">Cliente</th><th scope="col" class="px-4 py-3">Agente alquilado</th><th scope="col" class="px-4 py-3">Skills contratadas</th><th scope="col" class="px-4 py-3">Inicio</th><th scope="col" class="px-4 py-3">Finalización</th><th scope="col" class="px-4 py-3">Importe total</th><th scope="col" class="w-20 px-4 py-3 text-right">Acciones</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+    }
+
+    function renderErrors() {
+      const cards = state.errors.map(error => `<article class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"><div class="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-3"><div class="min-w-0"><div class="flex flex-wrap items-center gap-2">${badge(error.type)}<span class="font-mono text-xs text-slate-500 dark:text-slate-400">${escapeHtml(error.id)}</span><span class="text-xs text-slate-500 dark:text-slate-400">${escapeHtml(error.timestamp)}</span></div><h3 class="mt-3 break-words font-semibold">${escapeHtml(error.agentName)}</h3><p class="mt-1 break-words text-sm text-slate-600 dark:text-slate-300">${escapeHtml(error.briefDescription)}</p><div class="mt-3 flex flex-wrap items-center gap-2">${badge(error.status)}<span class="text-xs text-slate-500 dark:text-slate-400">Severidad: ${escapeHtml(error.severity)}</span></div></div><div class="shrink-0">${actionMenu('error', error.id, `${error.id} ${error.agentName}`)}</div></div></article>`).join('');
+      return `${sectionHeading('Errores', 'Registro de errores', 'Incidencias operativas y estado de resolución.')}
+        <div class="space-y-3">${cards}</div>`;
+    }
+
+    const renderers = { dashboard: renderDashboard, usuarios: renderUsers, agentes: renderAgents, skills: renderSkills, contrataciones: renderContracts, errores: renderErrors };
+
+    function renderApp() {
+      viewRoot.innerHTML = renderers[state.currentView]();
+      const current = navigation.find(item => item.id === state.currentView);
+      document.getElementById('view-title').textContent = current.label;
+      document.title = `AgentHub | ${current.label}`;
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const active = link.dataset.view === state.currentView;
+        link.classList.toggle('border-blue-600', active);
+        link.classList.toggle('bg-blue-50', active);
+        link.classList.toggle('text-blue-700', active);
+        link.classList.toggle('dark:bg-blue-400/10', active);
+        link.classList.toggle('dark:text-blue-300', active);
+        link.classList.toggle('border-transparent', !active);
+        link.classList.toggle('text-slate-600', !active);
+        link.classList.toggle('hover:bg-slate-100', !active);
+        link.classList.toggle('dark:text-slate-300', !active);
+        link.classList.toggle('dark:hover:bg-slate-800', !active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    }
+
+    function switchView(viewId) {
+      if (!renderers[viewId]) return;
+      state.currentView = viewId;
+      state.openDropdown = null;
+      renderApp();
+      closeDrawer();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+      const button = document.getElementById('theme-toggle');
+      button.setAttribute('aria-pressed', String(isDark));
+      button.setAttribute('aria-label', isDark ? 'Activar modo claro' : 'Activar modo oscuro');
+      document.getElementById('theme-icon').textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+
+    function openDrawer() {
+      sidebar.classList.remove('-translate-x-full');
+      drawerBackdrop.classList.remove('hidden');
+      document.getElementById('drawer-open').setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(() => drawerBackdrop.classList.remove('opacity-0'));
+      document.body.classList.add('overflow-hidden');
+      document.getElementById('drawer-close').focus();
+    }
+
+    function closeDrawer() {
+      sidebar.classList.add('-translate-x-full');
+      drawerBackdrop.classList.add('opacity-0');
+      document.getElementById('drawer-open').setAttribute('aria-expanded', 'false');
+      window.setTimeout(() => drawerBackdrop.classList.add('hidden'), 200);
+      if (!state.modal) document.body.classList.remove('overflow-hidden');
+      if (window.innerWidth < 1024) document.getElementById('drawer-open').focus();
+    }
+
+    function toggleDropdown(key) {
+      state.openDropdown = state.openDropdown === key ? null : key;
+      renderApp();
+      const trigger = document.querySelector(`[data-dropdown-trigger="${CSS.escape(key)}"]`);
+      if (trigger) trigger.focus();
+      if (state.openDropdown) {
+        const menu = trigger?.parentElement.querySelector('[role="menu"]');
+        const opensUp = trigger && window.innerHeight - trigger.getBoundingClientRect().bottom < 140;
+        if (menu) {
+          menu.classList.remove('top-11', 'bottom-11', 'top-auto');
+          menu.classList.add(opensUp ? 'bottom-11' : 'top-11');
+          if (opensUp) menu.classList.add('top-auto');
+        }
+        menu?.querySelector('[role="menuitem"]:not(:disabled)')?.focus();
+      }
+    }
+
+    function findRecord(type, id) {
+      const collection = { user: state.users, agent: state.agents, skill: state.skills, contract: state.contracts, error: state.errors }[type];
+      return collection?.find(item => item.id === id);
+    }
+
+    function removeRecord(type, id) {
+      const collection = { user: state.users, agent: state.agents, skill: state.skills }[type];
+      if (!collection) return;
+      const index = collection.findIndex(item => item.id === id);
+      if (index >= 0) collection.splice(index, 1);
+      if (type === 'agent') state.expandedAgents.delete(id);
+      if (type === 'skill') state.agents.forEach(agent => { agent.skillIds = agent.skillIds.filter(skillId => skillId !== id); });
+      renderApp();
+      showToast(`${type === 'user' ? 'Usuario' : type === 'agent' ? 'Agente' : 'Skill'} eliminado`);
+    }
+
+    function openModal(type, record, returnSelector) {
+      state.openDropdown = null;
+      state.modal = { type, record };
+      focusReturnSelector = returnSelector || null;
+      const content = modalContent(type, record);
+      modalRoot.innerHTML = `<div class="flex min-h-full items-center justify-center" data-modal-backdrop><section class="my-auto w-full max-w-xl rounded-xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900" role="dialog" aria-modal="true" aria-labelledby="modal-title"><header class="flex items-start justify-between gap-4 border-b border-slate-200 px-5 py-4 dark:border-slate-800"><div class="min-w-0"><p class="text-xs font-semibold uppercase text-blue-700 dark:text-blue-300">AgentHub</p><h2 id="modal-title" class="mt-1 text-lg font-bold">${content.title}</h2></div><button type="button" data-modal-close class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600 dark:text-slate-300 dark:hover:bg-slate-800" aria-label="Cerrar"><span class="material-symbols-outlined" aria-hidden="true">close</span></button></header><div class="max-h-[65vh] overflow-y-auto px-5 py-5">${content.body}</div>${content.footer ? `<footer class="flex flex-col-reverse gap-2 border-t border-slate-200 px-5 py-4 sm:flex-row sm:justify-end dark:border-slate-800">${content.footer}</footer>` : ''}</section></div>`;
+      modalRoot.classList.remove('hidden');
+      modalRoot.classList.add('flex');
+      modalRoot.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden');
+      modalRoot.querySelector('[data-modal-close]')?.focus();
+    }
+
+    function detailRows(items) {
+      return `<dl class="divide-y divide-slate-100 dark:divide-slate-800">${items.map(([label, value]) => `<div class="grid grid-cols-[minmax(7rem,0.8fr)_minmax(0,1.2fr)] gap-3 py-3 text-sm"><dt class="text-slate-500 dark:text-slate-400">${escapeHtml(label)}</dt><dd class="break-words font-medium">${value}</dd></div>`).join('')}</dl>`;
+    }
+
+    function modalContent(type, record) {
+      if (type === 'user') {
+        const agentCount = state.agents.filter(agent => agent.ownerId === record.id).length;
+        return { title: `Detalle de ${escapeHtml(record.name)}`, body: detailRows([['Nombre', escapeHtml(record.name)], ['Email', escapeHtml(record.email)], ['Plan', escapeHtml(record.plan)], ['Estado', badge(record.status)], ['ID de usuario', `<span class="font-mono">${escapeHtml(record.id)}</span>`], ['Fecha de registro', formatDate(record.registeredAt)], ['Agentes asociados', String(agentCount)]]), footer: '<button type="button" data-modal-close class="min-h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Cerrar</button>' };
+      }
+      if (type === 'agent') {
+        const skills = record.skillIds.map(id => state.skills.find(skill => skill.id === id)).filter(Boolean).map(skill => `<li class="flex items-center gap-2 py-1.5 text-sm"><span class="material-symbols-outlined text-lg text-blue-600 dark:text-blue-400" aria-hidden="true">${escapeHtml(skill.iconKey)}</span>${escapeHtml(skill.name)}</li>`).join('') || '<li class="py-1.5 text-sm text-slate-500 dark:text-slate-400">Sin skills disponibles</li>';
+        return { title: `Detalle de ${escapeHtml(record.name)}`, body: `${detailRows([['Nombre', escapeHtml(record.name)], ['Propietario', escapeHtml(record.ownerName)], ['Estado', badge(record.status)], ['ID del agente', `<span class="font-mono">${escapeHtml(record.id)}</span>`]])}<div class="mt-4"><h3 class="text-sm font-semibold">Skills asociadas</h3><ul class="mt-2">${skills}</ul></div>`, footer: '<button type="button" data-modal-close class="min-h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700">Cerrar</button>' };
+      }
+      if (type === 'agent-config') {
+        return { title: `Configurar ${escapeHtml(record.name)}`, body: `<label for="system-prompt" class="mb-2 block text-sm font-medium">Prompt de sistema</label><textarea id="system-prompt" rows="8" class="w-full resize-y rounded-lg border border-slate-300 bg-white p-3 text-sm leading-6 text-slate-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" spellcheck="false">${escapeHtml(record.systemPrompt)}</textarea>`, footer: '<button type="button" data-modal-close class="min-h-10 rounded-lg border border-slate-300 px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">Cancelar</button><button type="button" data-save-prompt class="min-h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700">Guardar</button>' };
+      }
+      if (type === 'skill') {
+        const linkedAgents = getSkillAgents(record.id);
+        const agentNames = linkedAgents.length ? linkedAgents.map(agent => `<li class="rounded-md bg-slate-50 px-3 py-2 text-sm dark:bg-slate-800">${escapeHtml(agent.name)}</li>`).join('') : '<li class="text-sm text-slate-500 dark:text-slate-400">Ningún agente tiene esta skill habilitada.</li>';
+        return { title: escapeHtml(record.name), body: `<div class="flex items-center gap-3"><span class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-400/10 dark:text-blue-300"><span class="material-symbols-outlined" aria-hidden="true">${escapeHtml(record.iconKey)}</span></span><span class="text-sm font-semibold">${linkedAgents.length} agentes habilitados</span></div><p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-300">${escapeHtml(record.fullDescription)}</p><h3 class="mt-5 text-sm font-semibold">Agentes con esta skill</h3><ul class="mt-2 space-y-2">${agentNames}</ul>`, footer: '<button type="button" data-modal-close class="min-h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700">Cerrar</button>' };
+      }
+      if (type === 'contract') {
+        const itemRows = record.breakdown.map(item => `<tr class="border-b border-slate-100 last:border-0 dark:border-slate-800"><td class="py-2.5 pr-3 text-sm">${escapeHtml(item.name)}</td><td class="whitespace-nowrap py-2.5 text-right text-sm tabular-nums">${formatMoney(item.amount)}</td></tr>`).join('');
+        const subtotal = record.breakdown.reduce((sum, item) => sum + item.amount, 0);
+        return { title: `Contrato ${escapeHtml(record.id)}`, body: `${detailRows([['Cliente', escapeHtml(record.clientName)], ['Agente', escapeHtml(record.agentName)], ['ID del contrato', `<span class="font-mono">${escapeHtml(record.id)}</span>`], ['Inicio', formatDate(record.startDate)], ['Finalización', formatDate(record.endDate)], ['Estado', escapeHtml(record.status)]])}<div class="mt-5"><h3 class="mb-2 text-sm font-semibold">Desglose económico</h3><table class="w-full"><tbody>${itemRows}</tbody><tfoot><tr class="border-t border-slate-200 dark:border-slate-700"><th class="py-3 text-left text-sm font-medium">Subtotal</th><td class="py-3 text-right text-sm font-semibold tabular-nums">${formatMoney(subtotal)}</td></tr><tr><th class="pb-1 text-left text-sm font-bold">Importe total pagado</th><td class="pb-1 text-right text-sm font-bold tabular-nums">${formatMoney(record.total)}</td></tr></tfoot></table></div>`, footer: '<button type="button" data-modal-close class="min-h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700">Cerrar</button>' };
+      }
+      if (type === 'error') {
+        return { title: `Detalle del error ${escapeHtml(record.id)}`, body: `${detailRows([['Timestamp', `<span class="font-mono text-xs">${escapeHtml(record.timestamp)}</span>`], ['Agente', escapeHtml(record.agentName)], ['Tipo', badge(record.type)], ['Severidad', escapeHtml(record.severity)], ['Estado', badge(record.status)], ['Identificador', `<span class="font-mono">${escapeHtml(record.id)}</span>`], ['Descripción', escapeHtml(record.description)]])}<div class="mt-4"><h3 class="mb-2 text-sm font-semibold">Traza completa</h3><pre class="max-h-64 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-950 p-4 font-mono text-xs leading-5 text-emerald-300">${escapeHtml(record.trace)}</pre></div>`, footer: '<button type="button" data-modal-close class="min-h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white hover:bg-blue-700">Cerrar</button>' };
+      }
+      return { title: 'Detalle', body: '', footer: '' };
+    }
+
+    function closeModal() {
+      if (!state.modal) return;
+      state.modal = null;
+      modalRoot.classList.add('hidden');
+      modalRoot.classList.remove('flex');
+      modalRoot.setAttribute('aria-hidden', 'true');
+      modalRoot.innerHTML = '';
+      document.body.classList.remove('overflow-hidden');
+      const focusTarget = focusReturnSelector ? document.querySelector(focusReturnSelector) : null;
+      focusTarget?.focus();
+      focusReturnSelector = null;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('translate-y-3', 'opacity-0');
+      clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.add('translate-y-3', 'opacity-0'), 2400);
+    }
+
+    document.addEventListener('click', event => {
+      const viewButton = event.target.closest('[data-view]');
+      if (viewButton) {
+        switchView(viewButton.dataset.view);
+        return;
+      }
+      if (event.target.closest('#theme-toggle')) {
+        setTheme(!document.documentElement.classList.contains('dark'));
+        return;
+      }
+      if (event.target.closest('#drawer-open')) {
+        openDrawer();
+        return;
+      }
+      if (event.target.closest('#drawer-close') || event.target === drawerBackdrop) {
+        closeDrawer();
+        return;
+      }
+      const dropdownTrigger = event.target.closest('[data-dropdown-trigger]');
+      if (dropdownTrigger) {
+        toggleDropdown(dropdownTrigger.dataset.dropdownTrigger);
+        return;
+      }
+      const accordion = event.target.closest('[data-accordion]');
+      if (accordion) {
+        const id = accordion.dataset.accordion;
+        if (state.expandedAgents.has(id)) state.expandedAgents.delete(id);
+        else state.expandedAgents.add(id);
+        renderApp();
+        document.querySelector(`[data-accordion="${CSS.escape(id)}"]`)?.focus();
+        return;
+      }
+      const menuAction = event.target.closest('[data-menu-action]');
+      if (menuAction && !menuAction.disabled) {
+        const { menuAction: action, recordType: type, recordId: id } = menuAction.dataset;
+        const record = findRecord(type, id);
+        const returnSelector = `[data-dropdown-trigger="${CSS.escape(`${type}:${id}`)}"]`;
+        state.openDropdown = null;
+        renderApp();
+        if (!record) return;
+        if (action === 'delete') {
+          removeRecord(type, id);
+        } else if (action === 'detail') {
+          openModal(type, record, returnSelector);
+        } else if (action === 'configure') {
+          openModal('agent-config', record, returnSelector);
+        } else if (action === 'resolve') {
+          record.status = 'Resuelto';
+          renderApp();
+          showToast('Error marcado como resuelto');
+        }
+        return;
+      }
+      if (event.target.closest('[data-modal-close]')) {
+        closeModal();
+        return;
+      }
+      if (event.target.closest('[data-modal-backdrop]') && event.target === modalRoot.querySelector('[data-modal-backdrop]')) {
+        closeModal();
+        return;
+      }
+      if (event.target.closest('[data-save-prompt]')) {
+        if (state.modal?.type === 'agent-config') {
+          state.modal.record.systemPrompt = document.getElementById('system-prompt').value;
+          closeModal();
+          renderApp();
+          showToast('Prompt guardado en esta sesión');
+        }
+      }
+    });
+
+    document.addEventListener('click', event => {
+      if (!event.target.closest('[data-dropdown-trigger]') && !event.target.closest('[role="menu"]') && state.openDropdown) {
+        state.openDropdown = null;
+        renderApp();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        if (state.modal) closeModal();
+        else if (!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) closeDrawer();
+        else if (state.openDropdown) {
+          state.openDropdown = null;
+          renderApp();
+        }
+      }
+      if (event.key === 'Tab' && state.modal) {
+        const focusable = [...modalRoot.querySelectorAll('button:not(:disabled), textarea, input, select, [href], [tabindex]:not([tabindex="-1"])')];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    renderApp();
+  </script>
+</body>
+</html>

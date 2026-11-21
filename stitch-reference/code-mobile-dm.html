@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "inverse-primary": "#b4c5ff", "surface-dark": "#111827", "on-surface": "#131b2e", "on-primary-container": "#eeefff", "error": "#ba1a1a", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-variant": "#dae2fd", "primary-container": "#2563eb", "text-primary-light": "#0F172A", "bg-base-light": "#F8FAFC", "on-surface-variant": "#434655", "primary": "#004ac6", "on-background": "#131b2e", "text-muted-dark": "#64748B", "warning-light": "#D97706", "background": "#faf8ff", "surface-hover-light": "#F1F5F9", "surface-hover-dark": "#1F2937", "danger-light": "#DC2626", "tertiary-fixed": "#ffdbcd", "surface-light": "#FFFFFF", "on-secondary-fixed": "#0d1c2e", "border-light": "#E2E8F0", "surface-dim": "#d2d9f4", "success-dark": "#22C55E", "text-primary-dark": "#F8FAFC", "on-primary-fixed-variant": "#003ea8", "outline-variant": "#c3c6d7", "success-light": "#16A34A", "on-secondary-fixed-variant": "#3a485b", "surface-container-low": "#f2f3ff", "primary-fixed": "#dbe1ff", "danger-dark": "#EF4444", "bg-base-dark": "#0B0F17", "secondary-fixed": "#d5e3fc", "outline": "#737686", "on-primary-fixed": "#00174b", "tertiary-container": "#bc4800", "border-dark": "#1F2937", "surface": "#faf8ff", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#360f00", "on-secondary-container": "#57657a", "surface-tint": "#0053db", "primary-dark": "#3B82F6", "text-secondary-light": "#475569", "on-tertiary-fixed-variant": "#7d2d00", "on-primary": "#ffffff", "secondary": "#515f74", "tertiary": "#943700", "secondary-container": "#d5e3fc", "warning-dark": "#F59E0B", "tertiary-fixed-dim": "#ffb596", "surface-container-highest": "#dae2fd", "on-tertiary-container": "#ffede6", "surface-container-lowest": "#ffffff", "on-error": "#ffffff", "inverse-surface": "#283044", "primary-fixed-dim": "#b4c5ff", "surface-bright": "#faf8ff", "surface-container-high": "#e2e7ff", "secondary-fixed-dim": "#b9c7df", "text-secondary-dark": "#94A3B8", "inverse-on-surface": "#eef0ff", "on-secondary": "#ffffff", "surface-container": "#eaedff", "text-muted-light": "#94A3B8" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { "space-xl": "1.5rem", "space-md": "0.75rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1.5rem", "gutter": "1rem", "space-lg": "1rem", "gutter-mobile": "0.75rem" }, fontFamily: { "body-md": ["Inter"], "display-lg": ["Inter"], "title-md": ["Inter"], "title-lg": ["Inter"], "body-sm": ["Inter"], "display-lg-mobile": ["Inter"], "label-xs": ["Inter"], "label-sm": ["Inter"] }, fontSize: { "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "display-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }], "title-md": ["15px", { lineHeight: "20px", fontWeight: "600" }], "title-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }], "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }], "display-lg-mobile": ["22px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "700" }], "label-xs": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }], "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-bg-base-dark text-text-primary-dark font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-[#0B0F17]/85 backdrop-blur-xl border-b border-border-dark"><div class="h-14 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Abrir menú" class="w-11 h-11 flex items-center justify-center rounded-lg text-text-primary-dark hover:bg-surface-hover-dark transition-colors" id="menu-open-btn" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full'); document.getElementById('drawer-backdrop').classList.remove('opacity-0', 'pointer-events-none');"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="flex items-center gap-space-xs"><div class="w-7 h-7 rounded-lg bg-primary-dark flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-white text-[18px]">hub</span></div><span class="font-title-lg text-title-lg text-primary-dark tracking-tight">AgentHub</span></div><div class="h-4 w-px bg-border-dark mx-space-xs hidden sm:block"></div><h1 class="font-title-md text-title-md text-text-primary-dark truncate hidden sm:block">Dashboard</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Cambiar tema" class="w-11 h-11 flex items-center justify-center rounded-lg text-primary-dark bg-primary-dark/10 transition-colors" onclick="document.documentElement.classList.toggle('dark')"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dark_mode</span></button><div class="w-8 h-8 rounded-full bg-primary-dark flex items-center justify-center shadow-sm ml-space-xs"><span class="material-symbols-outlined text-white text-[18px]">person</span></div></div></div></header><div class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm" id="drawer-backdrop" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-backdrop').classList.add('opacity-0', 'pointer-events-none');"></div><aside class="fixed top-0 left-0 bottom-0 w-[280px] bg-surface-dark border-r border-border-dark z-50 -translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col pt-safe pb-safe" id="mobile-drawer"><div class="h-14 px-margin-mobile flex items-center justify-between border-b border-border-dark"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-dark flex items-center justify-center"><span class="material-symbols-outlined text-white text-[18px]">hub</span></div><span class="font-title-lg text-title-lg text-primary-dark font-bold">AgentHub</span></div><button aria-label="Cerrar menú" class="w-11 h-11 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-backdrop').classList.add('opacity-0', 'pointer-events-none');"><span class="material-symbols-outlined text-[22px]">close</span></button></div><div class="p-space-md"><span class="font-label-xs text-label-xs uppercase text-text-secondary-dark tracking-wider px-space-sm">Administración SaaS</span></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-primary-dark/20 text-primary-dark font-title-md"><a aria-current="page" class="flex items-center gap-space-md px-space-md h-12 rounded-lg transition-colors bg-primary-dark/20 text-primary-dark font-title-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-body-md text-body-md flex-1">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md h-12 rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark transition-colors" data-path="usuarios" href="#"><span class="material-symbols-outlined text-[22px]">group</span><span class="font-body-md text-body-md flex-1">Usuarios</span></a><a class="flex items-center gap-space-md px-space-md h-12 rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark transition-colors" data-path="agentes" href="#"><span class="material-symbols-outlined text-[22px]">smart_toy</span><span class="font-body-md text-body-md flex-1">Agentes</span><span class="px-2 py-0.5 rounded-full bg-primary-dark/20 text-primary-dark font-label-xs text-label-xs">12</span></a><a class="flex items-center gap-space-md px-space-md h-12 rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark transition-colors" data-path="skills" href="#"><span class="material-symbols-outlined text-[22px]">bolt</span><span class="font-body-md text-body-md flex-1">Skills</span></a><a class="flex items-center gap-space-md px-space-md h-12 rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark transition-colors" data-path="contrataciones" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-body-md text-body-md flex-1">Contrataciones</span></a><a class="flex items-center gap-space-md px-space-md h-12 rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark transition-colors" data-path="errores" href="#"><span class="material-symbols-outlined text-[22px]">error_outline</span><span class="font-body-md text-body-md flex-1">Errores</span><span class="px-2 py-0.5 rounded-full bg-danger-dark/20 text-danger-dark font-label-xs text-label-xs">3</span></a></nav><div class="p-space-md border-t border-border-dark"><div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-bg-base-dark border border-border-dark"><div class="w-9 h-9 rounded-full bg-primary-dark flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px]">admin_panel_settings</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-title-md text-title-md text-text-primary-dark truncate">SysAdmin Corp</span><span class="font-body-sm text-body-sm text-text-secondary-dark truncate">admin@agenthub.io</span></div></div></div></aside><main class="flex-1 flex flex-col relative w-full pt-14 pb-20 bg-bg-base-dark"><div class="flex flex-col w-full pb-6 px-margin-mobile">
+<!-- Dynamic Top Banner with Contextual Greeting & Status Pulse -->
+<div class="py-space-md flex items-center justify-between">
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-primary-dark uppercase font-bold tracking-wider flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-success-dark animate-ping"></span>
+        Nodo Principal Operativo
+      </span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-text-primary-dark truncate" id="view-title">Dashboard Central</h2>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-dark border border-border-dark px-2.5 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary-dark" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
+<span class="font-label-xs text-label-xs text-text-primary-dark font-semibold">En vivo</span>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 1. DASHBOARD VIEW -->
+<!-- ========================================== -->
+<section class="view-panel space-y-space-md" id="view-dashboard">
+<!-- Metric Cards 2x2 Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Metric 1 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-xs text-label-xs text-text-secondary-dark font-medium">Ingresos del mes</span>
+<div class="w-7 h-7 rounded-lg bg-primary-dark/20 flex items-center justify-center text-primary-dark">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+</div>
+</div>
+<div class="my-space-xs">
+<span class="font-display-lg-mobile text-display-lg-mobile text-text-primary-dark font-bold tracking-tight">€ 48.250</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-success-dark">arrow_upward</span>
+<span class="font-label-xs text-label-xs text-success-dark font-bold">+14.2%</span>
+<span class="font-label-xs text-label-xs text-text-secondary-dark">vs mes ant.</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-xs text-label-xs text-text-secondary-dark font-medium">Pérdidas dscto.</span>
+<div class="w-7 h-7 rounded-lg bg-warning-dark/20 flex items-center justify-center text-warning-dark">
+<span class="material-symbols-outlined text-[16px]">loyalty</span>
+</div>
+</div>
+<div class="my-space-xs">
+<span class="font-display-lg-mobile text-display-lg-mobile text-[#f97316] font-bold tracking-tight">€ 3.120</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-warning-dark">trending_flat</span>
+<span class="font-label-xs text-label-xs text-text-secondary-dark">Promociones vía API</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-xs text-label-xs text-text-secondary-dark font-medium">Agentes activos</span>
+<div class="w-7 h-7 rounded-lg bg-primary-dark/20 flex items-center justify-center text-primary-dark">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+</div>
+</div>
+<div class="my-space-xs flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-text-primary-dark font-bold">3</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-bold">Operativos</span>
+</div>
+<span class="font-label-xs text-label-xs text-text-secondary-dark">Capacidad al 74%</span>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-xs text-label-xs text-text-secondary-dark font-medium">Agentes fallando</span>
+<div class="w-7 h-7 rounded-lg bg-danger-dark/20 flex items-center justify-center text-danger-dark">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+</div>
+</div>
+<div class="my-space-xs flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-danger-dark font-bold">1</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-danger-dark/20 text-danger-dark font-bold">Atención</span>
+</div>
+<button class="font-label-xs text-label-xs text-primary-dark font-bold hover:underline text-left" onclick="switchTab('errores')">Inspeccionar →</button>
+</div>
+</div>
+<!-- Actividad Semanal Card -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-text-primary-dark font-bold">Actividad semanal</h3>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Datos de ejemplo • Métricas consolidadas</p>
+</div>
+<span class="material-symbols-outlined text-primary-dark text-[24px]">analytics</span>
+</div>
+<!-- Sparkline Visual Component -->
+<div class="w-full bg-bg-base-dark border border-border-dark rounded-lg p-space-sm flex flex-col gap-2">
+<div class="flex justify-between items-center text-text-secondary-dark font-label-xs text-label-xs">
+<span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+</div>
+<div class="h-14 flex items-end gap-1.5 justify-between px-1">
+<div class="w-full bg-primary-dark/25 rounded-t-sm h-[45%]"></div>
+<div class="w-full bg-primary-dark/35 rounded-t-sm h-[60%]"></div>
+<div class="w-full bg-primary-dark/50 rounded-t-sm h-[75%]"></div>
+<div class="w-full bg-primary-dark/70 rounded-t-sm h-[65%]"></div>
+<div class="w-full bg-primary-dark rounded-t-sm h-[95%]"></div>
+<div class="w-full bg-primary-dark/30 rounded-t-sm h-[40%]"></div>
+<div class="w-full bg-primary-dark/45 rounded-t-sm h-[55%]"></div>
+</div>
+</div>
+<!-- Performance badges -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs">
+<div class="bg-bg-base-dark border border-border-dark p-2 rounded-lg text-center">
+<span class="font-label-xs text-label-xs text-text-secondary-dark block">Peticiones</span>
+<span class="font-title-md text-title-md text-text-primary-dark font-bold">14.892</span>
+</div>
+<div class="bg-bg-base-dark border border-border-dark p-2 rounded-lg text-center">
+<span class="font-label-xs text-label-xs text-text-secondary-dark block">Tiempo medio</span>
+<span class="font-title-md text-title-md text-text-primary-dark font-bold">1.82 s</span>
+</div>
+<div class="bg-bg-base-dark border border-border-dark p-2 rounded-lg text-center">
+<span class="font-label-xs text-label-xs text-text-secondary-dark block">Tasa de éxito</span>
+<span class="font-title-md text-title-md text-success-dark font-bold">98.4%</span>
+</div>
+</div>
+</div>
+<!-- Quick Insights Snippet -->
+<div class="bg-gradient-to-r from-blue-700 to-primary-dark border border-blue-600/50 text-white p-space-md rounded-xl shadow-lg flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-white">lightbulb</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md font-bold truncate">Revisión de contingencia</h4>
+<p class="font-body-sm text-body-sm opacity-90 truncate">Orion Support requiere reconexión de API</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-white text-primary-dark font-label-xs text-label-xs font-bold hover:bg-slate-100 shrink-0 shadow-sm" onclick="switchTab('agentes')">
+        Resolver
+      </button>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 2. USUARIOS VIEW -->
+<!-- ========================================== -->
+<section class="view-panel hidden space-y-space-sm" id="view-usuarios">
+<div class="flex justify-between items-center mb-1">
+<p class="font-body-sm text-body-sm text-text-secondary-dark">5 cuentas registradas en este espacio</p>
+<button class="flex items-center gap-1 text-primary-dark font-label-sm text-label-sm font-bold bg-primary-dark/20 px-3 py-1.5 rounded-lg hover:bg-primary-dark/30" onclick="showToast('Invitación enviada al enlace corporativo')">
+<span class="material-symbols-outlined text-[16px]">add</span>
+        Nuevo
+      </button>
+</div>
+<!-- User 1 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-dark/20 text-primary-dark flex items-center justify-center font-bold text-sm shrink-0">
+          MR
+        </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold truncate">Marta Ruiz</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark truncate">Plan: Empresa • marta@ruizcorp.com</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('user-1-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-10 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="user-1-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('user-modal', {name: 'Marta Ruiz', email: 'marta@ruizcorp.com', role: 'Empresa', status: 'Activo', lastAccess: 'Hace 12 min', agents: 4})">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Ver detalle
+          </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteUser('Marta Ruiz')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+          </button>
+</div>
+</div>
+</div>
+<!-- User 2 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-dark/20 text-primary-dark flex items-center justify-center font-bold text-sm shrink-0">
+          DV
+        </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold truncate">Daniel Vega</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark truncate">Plan: Profesional • daniel@vegasoft.es</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('user-2-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-10 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="user-2-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('user-modal', {name: 'Daniel Vega', email: 'daniel@vegasoft.es', role: 'Profesional', status: 'Activo', lastAccess: 'Hace 2 horas', agents: 2})">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Ver detalle
+          </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteUser('Daniel Vega')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+          </button>
+</div>
+</div>
+</div>
+<!-- User 3 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-dark/20 text-primary-dark flex items-center justify-center font-bold text-sm shrink-0">
+          LT
+        </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold truncate">Lucía Torres</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark truncate">Plan: Profesional • lucia.torres@cloud.io</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('user-3-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-10 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="user-3-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('user-modal', {name: 'Lucía Torres', email: 'lucia.torres@cloud.io', role: 'Profesional', status: 'Activo', lastAccess: 'Ayer', agents: 3})">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Ver detalle
+          </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteUser('Lucía Torres')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+          </button>
+</div>
+</div>
+</div>
+<!-- User 4 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between gap-space-sm opacity-90">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-danger-dark/20 text-danger-dark flex items-center justify-center font-bold text-sm shrink-0">
+          CM
+        </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold truncate">Carlos Méndez</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-danger-dark/20 text-danger-dark font-bold">Suspendido</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark truncate">Plan: Básico • c.mendez@consulting.com</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('user-4-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-10 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="user-4-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('user-modal', {name: 'Carlos Méndez', email: 'c.mendez@consulting.com', role: 'Básico', status: 'Suspendido', lastAccess: 'Hace 14 días', agents: 0})">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Ver detalle
+          </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteUser('Carlos Méndez')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+          </button>
+</div>
+</div>
+</div>
+<!-- User 5 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-dark/20 text-primary-dark flex items-center justify-center font-bold text-sm shrink-0">
+          ES
+        </div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold truncate">Elena Soto</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark truncate">Plan: Empresa • elena@sotocorp.net</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('user-5-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-10 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="user-5-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('user-modal', {name: 'Elena Soto', email: 'elena@sotocorp.net', role: 'Empresa', status: 'Activo', lastAccess: 'Hace 30 min', agents: 5})">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Ver detalle
+          </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteUser('Elena Soto')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 3. AGENTES VIEW -->
+<!-- ========================================== -->
+<section class="view-panel hidden space-y-space-md" id="view-agentes">
+<div class="flex justify-between items-center">
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Cluster IA: 4 agentes desplegados</p>
+<button class="flex items-center gap-1 text-white font-label-sm text-label-sm font-bold bg-primary-dark px-3 py-1.5 rounded-lg shadow-sm hover:bg-blue-600 transition-colors" onclick="showToast('Nuevo contenedor de agente preparado')">
+<span class="material-symbols-outlined text-[16px]">robot_2</span> Desplegar
+      </button>
+</div>
+<!-- Agent 1: Atlas Research -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-dark/20 flex items-center justify-center text-primary-dark">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md text-text-primary-dark font-bold">Atlas Research</h3>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Motor de análisis de mercado y síntesis</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('agent-atlas-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-8 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="agent-atlas-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('agent-config-modal', {name: 'Atlas Research', type: 'Investigación', temp: '0.3', tokens: '8192'})">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteAgent('Atlas Research')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+            </button>
+</div>
+</div>
+</div>
+<!-- Accordion Trigger -->
+<button class="w-full flex items-center justify-between p-2 rounded-lg bg-bg-base-dark border border-border-dark hover:bg-surface-hover-dark text-left transition-colors" onclick="toggleAccordion('skills-atlas')">
+<span class="font-label-sm text-label-sm text-primary-dark font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Skills asignados (2)
+        </span>
+<span class="material-symbols-outlined text-[18px] text-text-secondary-dark transition-transform" id="skills-atlas-icon">expand_more</span>
+</button>
+<div class="hidden pl-2 pt-1 space-y-1" id="skills-atlas">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">travel_explore</span>
+<span>Navegación web avanzada</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">description</span>
+<span>Lectura de documentos PDF/DOCX</span>
+</div>
+</div>
+</div>
+<!-- Agent 2: Orion Support -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-danger-dark/20 flex items-center justify-center text-danger-dark">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md text-text-primary-dark font-bold">Orion Support</h3>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-danger-dark/20 text-danger-dark font-bold">Fallando</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Atención técnica a usuarios nivel 1</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('agent-orion-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-8 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="agent-orion-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('agent-config-modal', {name: 'Orion Support', type: 'Soporte', temp: '0.7', tokens: '4096'})">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteAgent('Orion Support')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+            </button>
+</div>
+</div>
+</div>
+<!-- Accordion Trigger -->
+<button class="w-full flex items-center justify-between p-2 rounded-lg bg-bg-base-dark border border-border-dark hover:bg-surface-hover-dark text-left transition-colors" onclick="toggleAccordion('skills-orion')">
+<span class="font-label-sm text-label-sm text-primary-dark font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Skills asignados (1)
+        </span>
+<span class="material-symbols-outlined text-[18px] text-text-secondary-dark transition-transform" id="skills-orion-icon">expand_more</span>
+</button>
+<div class="hidden pl-2 pt-1 space-y-1" id="skills-orion">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">forum</span>
+<span>Navegación web y búsqueda FAQ</span>
+</div>
+</div>
+</div>
+<!-- Agent 3: Lumina Scheduler -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-dark/20 flex items-center justify-center text-primary-dark">
+<span class="material-symbols-outlined text-[24px]">calendar_month</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md text-text-primary-dark font-bold">Lumina Scheduler</h3>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Gestión de citas y calendarios ejecutivos</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('agent-lumina-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-8 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="agent-lumina-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('agent-config-modal', {name: 'Lumina Scheduler', type: 'Productividad', temp: '0.2', tokens: '2048'})">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteAgent('Lumina Scheduler')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+            </button>
+</div>
+</div>
+</div>
+<!-- Accordion Trigger -->
+<button class="w-full flex items-center justify-between p-2 rounded-lg bg-bg-base-dark border border-border-dark hover:bg-surface-hover-dark text-left transition-colors" onclick="toggleAccordion('skills-lumina')">
+<span class="font-label-sm text-label-sm text-primary-dark font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Skills asignados (2)
+        </span>
+<span class="material-symbols-outlined text-[18px] text-text-secondary-dark transition-transform" id="skills-lumina-icon">expand_more</span>
+</button>
+<div class="hidden pl-2 pt-1 space-y-1" id="skills-lumina">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">event_available</span>
+<span>Gestión de calendario</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">alt_route</span>
+<span>Automatización vía Webhooks</span>
+</div>
+</div>
+</div>
+<!-- Agent 4: Northstar Operations -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-dark/20 flex items-center justify-center text-primary-dark">
+<span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md text-text-primary-dark font-bold">Northstar Operations</h3>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Sincronización de pipelines de datos ERP</p>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-text-secondary-dark hover:bg-surface-hover-dark" onclick="toggleActionDropdown('agent-north-menu')">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 top-8 w-36 bg-surface-dark border border-border-dark rounded-lg shadow-xl z-20 p-1" id="agent-north-menu">
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-text-primary-dark hover:bg-surface-hover-dark flex items-center gap-2" onclick="openModal('agent-config-modal', {name: 'Northstar Operations', type: 'Operaciones', temp: '0.1', tokens: '16384'})">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<button class="w-full text-left px-3 py-2 rounded font-body-sm text-body-sm text-danger-dark hover:bg-danger-dark/20 flex items-center gap-2" onclick="confirmDeleteAgent('Northstar Operations')">
+<span class="material-symbols-outlined text-[16px]">delete</span> Eliminar
+            </button>
+</div>
+</div>
+</div>
+<!-- Accordion Trigger -->
+<button class="w-full flex items-center justify-between p-2 rounded-lg bg-bg-base-dark border border-border-dark hover:bg-surface-hover-dark text-left transition-colors" onclick="toggleAccordion('skills-north')">
+<span class="font-label-sm text-label-sm text-primary-dark font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Skills asignados (2)
+        </span>
+<span class="material-symbols-outlined text-[18px] text-text-secondary-dark transition-transform" id="skills-north-icon">expand_more</span>
+</button>
+<div class="hidden pl-2 pt-1 space-y-1" id="skills-north">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">description</span>
+<span>Lectura de documentos técnicos</span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-primary-dark bg-bg-base-dark border border-border-dark p-1.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-primary-dark">settings_suggest</span>
+<span>Automatización y triggers batch</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 4. SKILLS VIEW -->
+<!-- ========================================== -->
+<section class="view-panel hidden space-y-space-md" id="view-skills">
+<!-- Explanatory Rich Banner -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-2">
+<div class="flex items-center gap-2 text-primary-dark font-title-md text-title-md font-bold">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+<span>Capacidades Modulares (Skills)</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark leading-relaxed">
+        Los <strong>Skills</strong> son herramientas ejecutables que dotan a los modelos de lenguaje de capacidades deterministas en tiempo real: desde acceso al navegador y parseo de expedientes, hasta llamadas a APIs externas.
+      </p>
+</div>
+<!-- Skills List Cards -->
+<div class="space-y-space-sm">
+<!-- Skill 1 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-xl bg-primary-dark/20 flex items-center justify-center text-primary-dark shrink-0">
+<span class="material-symbols-outlined text-[24px]">travel_explore</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold truncate">Navegación web</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Extracción de datos y navegación DOM en vivo</p>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-bg-base-dark border border-border-dark text-primary-dark font-label-xs text-label-xs font-bold rounded-lg shrink-0 hover:bg-surface-hover-dark" onclick="openSkillModal('Navegación web', ['Atlas Research', 'Orion Support', 'Lumina Scheduler'], 'Permite al modelo navegar URLs de forma segura con rendering headless de Chromium y bypass de captchas básicos.')">
+          3 agentes
+        </button>
+</div>
+<!-- Skill 2 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-xl bg-surface-hover-dark border border-border-dark flex items-center justify-center text-text-secondary-dark shrink-0">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold truncate">Lectura de documentos</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">OCR nativo y parsing vectorial para PDF y hojas de cálculo</p>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-bg-base-dark border border-border-dark text-primary-dark font-label-xs text-label-xs font-bold rounded-lg shrink-0 hover:bg-surface-hover-dark" onclick="openSkillModal('Lectura de documentos', ['Atlas Research', 'Northstar Operations'], 'Embeddings semánticos rápidos sobre ficheros estructurados y no estructurados hasta 500 páginas.')">
+          2 agentes
+        </button>
+</div>
+<!-- Skill 3 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-xl bg-warning-dark/20 flex items-center justify-center text-warning-dark shrink-0">
+<span class="material-symbols-outlined text-[24px]">event_available</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold truncate">Gestión de calendario</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Conectores bidireccionales con Google &amp; Outlook</p>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-bg-base-dark border border-border-dark text-primary-dark font-label-xs text-label-xs font-bold rounded-lg shrink-0 hover:bg-surface-hover-dark" onclick="openSkillModal('Gestión de calendario', ['Lumina Scheduler', 'Atlas Research'], 'Comprueba conflictos de agenda y confirma eventos automáticos con enlaces de videoconferencia.')">
+          2 agentes
+        </button>
+</div>
+<!-- Skill 4 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-xl bg-primary-dark/20 flex items-center justify-center text-primary-dark shrink-0">
+<span class="material-symbols-outlined text-[24px]">settings_suggest</span>
+</div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold truncate">Automatización</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Ejecución de webhooks, Zapier y scripts bash aislados</p>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-bg-base-dark border border-border-dark text-primary-dark font-label-xs text-label-xs font-bold rounded-lg shrink-0 hover:bg-surface-hover-dark" onclick="openSkillModal('Automatización', ['Northstar Operations'], 'Entorno sandbox en Docker para ejecución de scripts de sincronización transaccional con timeout de 30s.')">
+          1 agente
+        </button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 5. CONTRATACIONES VIEW -->
+<!-- ========================================== -->
+<section class="view-panel hidden space-y-space-sm" id="view-contrataciones">
+<div class="flex justify-between items-center mb-1">
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Historial de licencias y alquiler mensual</p>
+<button class="flex items-center gap-1 text-primary-dark font-label-sm text-label-sm font-bold bg-surface-dark border border-border-dark px-3 py-1.5 rounded-lg hover:bg-surface-hover-dark" onclick="showToast('Exportando reporte contable a CSV...')">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+        Exportar
+      </button>
+</div>
+<!-- Contract 1 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold">Northstar S.A.</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Agente: <strong class="text-text-primary-dark">Atlas Research</strong></p>
+</div>
+<span class="font-title-lg text-title-lg text-primary-dark font-bold">€ 1.450</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-xs text-label-xs text-text-secondary-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 01 Ene 2025 – 31 Dic 2025
+        </span>
+<button class="font-label-sm text-label-sm text-primary-dark font-semibold hover:underline" onclick="openContractModal({client: 'Northstar S.A.', agent: 'Atlas Research', period: '01/01/2025 - 31/12/2025', base: 1200, vat: 250, total: 1450, billingId: 'INV-2025-091'})">
+          Ver detalle
+        </button>
+</div>
+</div>
+<!-- Contract 2 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold">Lumina Studio</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Agente: <strong class="text-text-primary-dark">Lumina Scheduler</strong></p>
+</div>
+<span class="font-title-lg text-title-lg text-primary-dark font-bold">€ 890</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-xs text-label-xs text-text-secondary-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 15 Feb 2025 – 15 Ago 2025
+        </span>
+<button class="font-label-sm text-label-sm text-primary-dark font-semibold hover:underline" onclick="openContractModal({client: 'Lumina Studio', agent: 'Lumina Scheduler', period: '15/02/2025 - 15/08/2025', base: 735, vat: 155, total: 890, billingId: 'INV-2025-114'})">
+          Ver detalle
+        </button>
+</div>
+</div>
+<!-- Contract 3 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold">Verde Tecnologías</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-success-dark/20 text-success-dark font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Agente: <strong class="text-text-primary-dark">Northstar Operations</strong></p>
+</div>
+<span class="font-title-lg text-title-lg text-primary-dark font-bold">€ 2.200</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-xs text-label-xs text-text-secondary-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 01 Mar 2025 – 28 Feb 2026
+        </span>
+<button class="font-label-sm text-label-sm text-primary-dark font-semibold hover:underline" onclick="openContractModal({client: 'Verde Tecnologías', agent: 'Northstar Operations', period: '01/03/2025 - 28/02/2026', base: 1818, vat: 382, total: 2200, billingId: 'INV-2025-204'})">
+          Ver detalle
+        </button>
+</div>
+</div>
+<!-- Contract 4 -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-text-primary-dark font-bold">Orion Labs</h4>
+<span class="font-label-xs text-label-xs px-2 py-0.2 rounded-full bg-warning-dark/20 text-warning-dark font-bold">Renovación</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Agente: <strong class="text-text-primary-dark">Orion Support</strong></p>
+</div>
+<span class="font-title-lg text-title-lg text-primary-dark font-bold">€ 950</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-xs text-label-xs text-text-secondary-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> 10 Ene 2025 – 10 Jul 2025
+        </span>
+<button class="font-label-sm text-label-sm text-primary-dark font-semibold hover:underline" onclick="openContractModal({client: 'Orion Labs', agent: 'Orion Support', period: '10/01/2025 - 10/07/2025', base: 785, vat: 165, total: 950, billingId: 'INV-2025-045'})">
+          Ver detalle
+        </button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 6. ERRORES VIEW -->
+<!-- ========================================== -->
+<section class="view-panel hidden space-y-space-sm" id="view-errores">
+<div class="flex justify-between items-center mb-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-danger-dark animate-pulse"></span>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">3 incidentes reportados</p>
+</div>
+<button class="font-label-sm text-label-sm text-primary-dark font-bold bg-surface-dark border border-border-dark px-3 py-1.5 rounded-lg hover:bg-surface-hover-dark" onclick="showToast('Depurador en tiempo real reiniciado')">
+        Depurar
+      </button>
+</div>
+<!-- Error 1: Critical -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-2" id="error-card-1">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs px-2.5 py-0.5 rounded-full bg-danger-dark/20 text-danger-dark font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">dangerous</span> Crítico
+          </span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-bg-base-dark border border-border-dark text-text-secondary-dark font-medium" id="badge-status-1">Pendiente</span>
+</div>
+<span class="font-label-xs text-label-xs text-text-secondary-dark">Hace 8 min</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold">ERR_OAI_TIMEOUT en Orion Support</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">Gateway excedió el tiempo máximo de espera (30000ms) durante la ejecución del parser de tickets.</p>
+<div class="flex justify-end pt-1">
+<button class="font-label-sm text-label-sm text-primary-dark font-bold hover:underline flex items-center gap-1" onclick="openErrorModal('1', 'ERR_OAI_TIMEOUT', 'Orion Support', 'Timeout exceeded while waiting for OpenAI socket response at gateway/router.ts:142:18\n  at async runAgentPipeline (/opt/core/dist/agents/orion.js:88:9)\n  at EventEmitter.processTask (/opt/core/dist/queue/worker.js:312:21)')">
+<span class="material-symbols-outlined text-[16px]">bug_report</span> Ver detalle
+        </button>
+</div>
+</div>
+<!-- Error 2: Warning -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-2" id="error-card-2">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs px-2.5 py-0.5 rounded-full bg-warning-dark/20 text-warning-dark font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span> Advertencia
+          </span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-bg-base-dark border border-border-dark text-text-secondary-dark font-medium" id="badge-status-2">Pendiente</span>
+</div>
+<span class="font-label-xs text-label-xs text-text-secondary-dark">Hace 45 min</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold">Tasa de cuota al 88% en Atlas</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">El límite de tokens por minuto (TPM) para embeddings casi alcanza el umbral de estrangulamiento.</p>
+<div class="flex justify-end pt-1">
+<button class="font-label-sm text-label-sm text-primary-dark font-bold hover:underline flex items-center gap-1" onclick="openErrorModal('2', 'WARN_RATE_LIMIT', 'Atlas Research', 'Token usage nearing per-minute quota threshold: 88,240 / 100,000 TPM at limiter/tokenBucket.ts:45:12\n  Warning raised by telemetry collector.')">
+<span class="material-symbols-outlined text-[16px]">bug_report</span> Ver detalle
+        </button>
+</div>
+</div>
+<!-- Error 3: Info -->
+<div class="bg-surface-dark border border-border-dark p-space-md rounded-xl shadow-sm space-y-2" id="error-card-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs px-2.5 py-0.5 rounded-full bg-primary-dark/20 text-primary-dark font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">info</span> Informativo
+          </span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-medium" id="badge-status-3">Resuelto</span>
+</div>
+<span class="font-label-xs text-label-xs text-text-secondary-dark">Hace 3 horas</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary-dark font-semibold">Reinicio programado de worker</h4>
+<p class="font-body-sm text-body-sm text-text-secondary-dark">El worker de background ejecutó recolección de memoria periódica con éxito (GC liberó 420MB).</p>
+<div class="flex justify-end pt-1">
+<button class="font-label-sm text-label-sm text-primary-dark font-bold hover:underline flex items-center gap-1" onclick="openErrorModal('3', 'INFO_GC_RECYCLE', 'System Worker', 'Scheduled garbage collection cycle completed: 420MB memory released. Worker PID: 8092. Status code: OK (0).')">
+<span class="material-symbols-outlined text-[16px]">bug_report</span> Ver detalle
+        </button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- MODALS CONTAINER -->
+<!-- ========================================== -->
+<!-- Modal 1: User Detail -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-space-sm bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200" id="modal-user">
+<div class="w-full max-w-sm bg-surface-dark border border-border-dark rounded-2xl p-space-md shadow-2xl space-y-space-sm transform translate-y-4 transition-transform duration-200" id="modal-user-card">
+<div class="flex items-center justify-between pb-1">
+<h3 class="font-title-lg text-title-lg text-text-primary-dark font-bold">Perfil de Usuario</h3>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary-dark hover:bg-surface-hover-dark" onclick="closeModal('modal-user')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-xs text-text-primary-dark font-body-sm text-body-sm">
+<div class="flex justify-between py-1 bg-bg-base-dark border border-border-dark px-2.5 rounded-lg">
+<span class="text-text-secondary-dark">Nombre:</span>
+<span class="font-bold text-text-primary-dark" id="user-detail-name"></span>
+</div>
+<div class="flex justify-between py-1 px-2.5">
+<span class="text-text-secondary-dark">Email:</span>
+<span class="font-mono text-xs text-text-primary-dark" id="user-detail-email"></span>
+</div>
+<div class="flex justify-between py-1 bg-bg-base-dark border border-border-dark px-2.5 rounded-lg">
+<span class="text-text-secondary-dark">Plan SaaS:</span>
+<span class="font-semibold text-primary-dark" id="user-detail-role"></span>
+</div>
+<div class="flex justify-between py-1 px-2.5">
+<span class="text-text-secondary-dark">Estado:</span>
+<span class="font-semibold text-text-primary-dark" id="user-detail-status"></span>
+</div>
+<div class="flex justify-between py-1 bg-bg-base-dark border border-border-dark px-2.5 rounded-lg">
+<span class="text-text-secondary-dark">Último acceso:</span>
+<span id="user-detail-access"></span>
+</div>
+<div class="flex justify-between py-1 px-2.5">
+<span class="text-text-secondary-dark">Agentes asignados:</span>
+<span class="font-bold text-text-primary-dark" id="user-detail-agents"></span>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full h-11 bg-primary-dark text-white rounded-xl font-title-md text-title-md font-semibold hover:bg-blue-600 transition-colors" onclick="closeModal('modal-user')">
+          Cerrar
+        </button>
+</div>
+</div>
+</div>
+<!-- Modal 2: Agent Configuration -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-space-sm bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200" id="modal-agent-config">
+<div class="w-full max-w-sm bg-surface-dark border border-border-dark rounded-2xl p-space-md shadow-2xl space-y-space-sm transform translate-y-4 transition-transform duration-200" id="modal-agent-card">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-dark text-[22px]">tune</span>
+<h3 class="font-title-lg text-title-lg text-text-primary-dark font-bold">Ajustes de Agente</h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary-dark hover:bg-surface-hover-dark" onclick="closeModal('modal-agent-config')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-sm">
+<div>
+<label class="block font-label-xs text-label-xs text-text-secondary-dark uppercase font-bold mb-1">Nombre del Agente</label>
+<input class="w-full h-10 px-3 bg-bg-base-dark border border-border-dark rounded-lg font-body-sm text-body-sm text-text-primary-dark outline-none focus:ring-2 focus:ring-primary-dark" id="agent-config-name" readonly="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-xs text-label-xs text-text-secondary-dark uppercase font-bold mb-1">Temperatura</label>
+<input class="w-full h-10 px-3 bg-bg-base-dark border border-border-dark rounded-lg font-body-sm text-body-sm text-text-primary-dark outline-none focus:ring-2 focus:ring-primary-dark" id="agent-config-temp" max="1" min="0" step="0.1" type="number"/>
+</div>
+<div>
+<label class="block font-label-xs text-label-xs text-text-secondary-dark uppercase font-bold mb-1">Max Tokens</label>
+<input class="w-full h-10 px-3 bg-bg-base-dark border border-border-dark rounded-lg font-body-sm text-body-sm text-text-primary-dark outline-none focus:ring-2 focus:ring-primary-dark" id="agent-config-tokens" type="number"/>
+</div>
+</div>
+<div>
+<label class="block font-label-xs text-label-xs text-text-secondary-dark uppercase font-bold mb-1">Modo de Operación</label>
+<select class="w-full h-10 px-3 bg-bg-base-dark border border-border-dark rounded-lg font-body-sm text-body-sm text-text-primary-dark outline-none focus:ring-2 focus:ring-primary-dark">
+<option>Determinista / Baja latencia</option>
+<option>Razonamiento profundo (Chain-of-thought)</option>
+<option>Streaming de tokens en tiempo real</option>
+</select>
+</div>
+</div>
+<div class="pt-2 flex gap-space-sm">
+<button class="flex-1 h-11 bg-surface-hover-dark border border-border-dark text-text-primary-dark rounded-xl font-title-md text-title-md font-semibold" onclick="closeModal('modal-agent-config')">
+          Cancelar
+        </button>
+<button class="flex-1 h-11 bg-primary-dark text-white rounded-xl font-title-md text-title-md font-semibold hover:bg-blue-600 transition-colors" onclick="saveAgentConfig()">
+          Guardar
+        </button>
+</div>
+</div>
+</div>
+<!-- Modal 3: Skill Detail -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-space-sm bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200" id="modal-skill">
+<div class="w-full max-w-sm bg-surface-dark border border-border-dark rounded-2xl p-space-md shadow-2xl space-y-space-sm transform translate-y-4 transition-transform duration-200">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-dark text-[22px]">bolt</span>
+<h3 class="font-title-lg text-title-lg text-text-primary-dark font-bold" id="skill-modal-title"></h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary-dark hover:bg-surface-hover-dark" onclick="closeModal('modal-skill')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary-dark" id="skill-modal-desc"></p>
+<div>
+<label class="block font-label-xs text-label-xs text-text-secondary-dark uppercase font-bold mb-1.5">Agentes con esta capacidad activa</label>
+<div class="space-y-1.5" id="skill-modal-agents"></div>
+</div>
+<div class="pt-2">
+<button class="w-full h-11 bg-primary-dark text-white rounded-xl font-title-md text-title-md font-semibold hover:bg-blue-600 transition-colors" onclick="closeModal('modal-skill')">
+          Entendido
+        </button>
+</div>
+</div>
+</div>
+<!-- Modal 4: Contract Detail Breakdown -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-space-sm bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200" id="modal-contract">
+<div class="w-full max-w-sm bg-surface-dark border border-border-dark rounded-2xl p-space-md shadow-2xl space-y-space-sm transform translate-y-4 transition-transform duration-200">
+<div class="flex items-center justify-between pb-1">
+<div>
+<span class="font-label-xs text-label-xs text-primary-dark font-mono font-bold" id="contract-modal-id"></span>
+<h3 class="font-title-lg text-title-lg text-text-primary-dark font-bold" id="contract-modal-client"></h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary-dark hover:bg-surface-hover-dark" onclick="closeModal('modal-contract')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-xs font-body-sm text-body-sm text-text-primary-dark">
+<div class="flex justify-between py-1 bg-bg-base-dark border border-border-dark px-2.5 rounded-lg">
+<span class="text-text-secondary-dark">Agente asignado:</span>
+<span class="font-bold text-text-primary-dark" id="contract-modal-agent"></span>
+</div>
+<div class="flex justify-between py-1 px-2.5">
+<span class="text-text-secondary-dark">Vigencia:</span>
+<span class="font-medium text-xs text-text-primary-dark" id="contract-modal-period"></span>
+</div>
+<div class="p-2.5 bg-bg-base-dark border border-border-dark rounded-lg space-y-1 mt-2">
+<div class="flex justify-between text-xs text-text-secondary-dark">
+<span>Base imponible:</span>
+<span class="font-semibold text-text-primary-dark" id="contract-modal-base"></span>
+</div>
+<div class="flex justify-between text-xs text-text-secondary-dark">
+<span>IVA / Impuestos (21%):</span>
+<span class="font-semibold text-text-primary-dark" id="contract-modal-vat"></span>
+</div>
+<div class="pt-1.5 flex justify-between font-title-md text-title-md text-text-primary-dark font-bold border-t border-border-dark">
+<span>Total Facturado:</span>
+<span class="text-primary-dark font-bold" id="contract-modal-total"></span>
+</div>
+</div>
+</div>
+<div class="pt-2 flex gap-space-sm">
+<button class="flex-1 h-11 bg-surface-hover-dark border border-border-dark text-text-primary-dark rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-1" onclick="showToast('Factura reenviada por correo al cliente'); closeModal('modal-contract')">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span> Reenviar
+        </button>
+<button class="flex-1 h-11 bg-primary-dark text-white rounded-xl font-title-md text-title-md font-semibold hover:bg-blue-600 transition-colors" onclick="closeModal('modal-contract')">
+          Aceptar
+        </button>
+</div>
+</div>
+</div>
+<!-- Modal 5: Error Stack Trace & Resolution -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-space-sm bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200" id="modal-error">
+<div class="w-full max-w-sm bg-surface-dark border border-border-dark rounded-2xl p-space-md shadow-2xl space-y-space-sm transform translate-y-4 transition-transform duration-200">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-danger-dark/20 text-danger-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">bug_report</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-text-primary-dark font-bold" id="error-modal-code"></h3>
+<p class="font-body-sm text-body-sm text-text-secondary-dark" id="error-modal-agent"></p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary-dark hover:bg-surface-hover-dark" onclick="closeModal('modal-error')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div>
+<label class="block font-label-xs text-label-xs text-text-secondary-dark uppercase font-bold mb-1">Stack Trace Registrado</label>
+<pre class="w-full p-2.5 bg-bg-base-dark border border-border-dark text-emerald-400 rounded-lg font-mono text-[11px] leading-relaxed overflow-x-auto max-h-36 whitespace-pre-wrap" id="error-modal-stack"></pre>
+</div>
+<div class="pt-2 flex gap-space-sm">
+<button class="flex-1 h-11 bg-surface-hover-dark border border-border-dark text-text-primary-dark rounded-xl font-title-md text-title-md font-semibold" onclick="closeModal('modal-error')">
+          Cerrar
+        </button>
+<button class="flex-1 h-11 bg-success-dark text-white rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-emerald-600 transition-colors" id="error-modal-resolve-btn" onclick="resolveCurrentError()">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Resolver
+        </button>
+</div>
+</div>
+</div>
+<!-- Toast Notification System -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-surface-dark border border-border-dark text-text-primary-dark px-4 py-2.5 rounded-full shadow-2xl z-50 flex items-center gap-2 font-body-sm text-body-sm font-medium pointer-events-none opacity-0 transition-opacity duration-300" id="toast">
+<span class="material-symbols-outlined text-[18px] text-success-dark">check_circle</span>
+<span id="toast-text">Acción ejecutada con éxito</span>
+</div>
+</div>
+<script>
+  // State variables
+  let currentActiveTab = 'dashboard';
+  let activeErrorId = null;
+
+  const viewTitles = {
+    'dashboard': 'Dashboard Central',
+    'usuarios': 'Gestión de Usuarios',
+    'agentes': 'Flota de Agentes IA',
+    'skills': 'Catálogo de Skills',
+    'contrataciones': 'Contrataciones y Rentas',
+    'errores': 'Registro de Incidentes'
+  };
+
+  // Synchronize Tab Switching from Bottom Nav, Side Drawer, and In-Page Triggers
+  function switchTab(tabId) {
+    if (!viewTitles[tabId]) return;
+    currentActiveTab = tabId;
+
+    // 1. Hide all view panels and show the requested one
+    document.querySelectorAll('.view-panel').forEach(panel => {
+      panel.classList.add('hidden');
+    });
+    const targetPanel = document.getElementById('view-' + tabId);
+    if (targetPanel) {
+      targetPanel.classList.remove('hidden');
+    }
+
+    // 2. Update dynamic view header
+    const titleEl = document.getElementById('view-title');
+    if (titleEl) {
+      titleEl.textContent = viewTitles[tabId];
+    }
+
+    // 3. Update bottom navigation styles
+    document.querySelectorAll('nav.fixed a[data-path]').forEach(btn => {
+      const isCurrent = btn.getAttribute('data-path') === tabId;
+      if (isCurrent) {
+        btn.classList.add('text-primary-dark', 'font-title-md');
+        btn.classList.remove('text-text-secondary-dark');
+      } else {
+        btn.classList.remove('text-primary-dark', 'font-title-md');
+        btn.classList.add('text-text-secondary-dark');
+      }
+    });
+
+    // 4. Update side drawer navigation styles
+    document.querySelectorAll('#mobile-drawer nav a[data-path]').forEach(link => {
+      const isCurrent = link.getAttribute('data-path') === tabId;
+      if (isCurrent) {
+        link.classList.add('bg-primary-dark/20', 'text-primary-dark', 'font-title-md');
+        link.classList.remove('text-text-secondary-dark');
+      } else {
+        link.classList.remove('bg-primary-dark/20', 'text-primary-dark', 'font-title-md');
+        link.classList.add('text-text-secondary-dark');
+      }
+    });
+
+    // 5. Close drawer and backdrop if open
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    if (drawer && backdrop) {
+      drawer.classList.add('-translate-x-full');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    // Close any floating context dropdowns
+    closeAllDropdowns();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Intercept clicks on shell's bottom bar and drawer links
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[data-path]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const path = el.getAttribute('data-path');
+        if (path) switchTab(path);
+      });
+    });
+    // Set initial active state
+    switchTab('dashboard');
+  });
+
+  // Accordion Toggle for Agent Skills
+  function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const icon = document.getElementById(id + '-icon');
+    if (content) {
+      const isHidden = content.classList.contains('hidden');
+      content.classList.toggle('hidden');
+      if (icon) {
+        icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    }
+  }
+
+  // Contextual Dropdown Menus
+  function toggleActionDropdown(menuId) {
+    const target = document.getElementById(menuId);
+    document.querySelectorAll('[id$="-menu"]').forEach(el => {
+      if (el.id !== menuId) el.classList.add('hidden');
+    });
+    if (target) {
+      target.classList.toggle('hidden');
+    }
+  }
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('[id$="-menu"]').forEach(el => el.classList.add('hidden'));
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[id$="-menu"]') && !e.target.closest('button[onclick*="toggleActionDropdown"]')) {
+      closeAllDropdowns();
+    }
+  });
+
+  // Modal Display Logic
+  function openModal(modalType, data) {
+    closeAllDropdowns();
+    let modalEl = null;
+
+    if (modalType === 'user-modal') {
+      modalEl = document.getElementById('modal-user');
+      document.getElementById('user-detail-name').textContent = data.name;
+      document.getElementById('user-detail-email').textContent = data.email;
+      document.getElementById('user-detail-role').textContent = data.role;
+      document.getElementById('user-detail-status').textContent = data.status;
+      document.getElementById('user-detail-access').textContent = data.lastAccess;
+      document.getElementById('user-detail-agents').textContent = data.agents + ' agentes activos';
+    } else if (modalType === 'agent-config-modal') {
+      modalEl = document.getElementById('modal-agent-config');
+      document.getElementById('agent-config-name').value = data.name;
+      document.getElementById('agent-config-temp').value = data.temp;
+      document.getElementById('agent-config-tokens').value = data.tokens;
+    }
+
+    if (modalEl) {
+      modalEl.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        modalEl.classList.remove('opacity-0');
+        const card = modalEl.querySelector('div');
+        if (card) card.classList.remove('translate-y-4');
+      });
+    }
+  }
+
+  function closeModal(modalId) {
+    const modalEl = document.getElementById(modalId);
+    if (modalEl) {
+      modalEl.classList.add('opacity-0');
+      const card = modalEl.querySelector('div');
+      if (card) card.classList.add('translate-y-4');
+      setTimeout(() => {
+        modalEl.classList.add('hidden');
+      }, 200);
+    }
+  }
+
+  // Specialized Modals
+  function openSkillModal(skillName, agents, description) {
+    const modal = document.getElementById('modal-skill');
+    document.getElementById('skill-modal-title').textContent = skillName;
+    document.getElementById('skill-modal-desc').textContent = description;
+    const container = document.getElementById('skill-modal-agents');
+    container.innerHTML = agents.map(agent => `
+      <div class="flex items-center justify-between p-2 rounded-lg bg-bg-base-dark border border-border-dark font-body-sm text-body-sm text-text-primary-dark">
+        <span class="font-medium">${agent}</span>
+        <span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-bold">Vinculado</span>
+      </div>
+    `).join('');
+
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => modal.classList.remove('opacity-0'));
+  }
+
+  function openContractModal(data) {
+    const modal = document.getElementById('modal-contract');
+    document.getElementById('contract-modal-id').textContent = data.billingId;
+    document.getElementById('contract-modal-client').textContent = data.client;
+    document.getElementById('contract-modal-agent').textContent = data.agent;
+    document.getElementById('contract-modal-period').textContent = data.period;
+    document.getElementById('contract-modal-base').textContent = '€ ' + data.base.toLocaleString();
+    document.getElementById('contract-modal-vat').textContent = '€ ' + data.vat.toLocaleString();
+    document.getElementById('contract-modal-total').textContent = '€ ' + data.total.toLocaleString();
+
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => modal.classList.remove('opacity-0'));
+  }
+
+  function openErrorModal(id, code, agent, stack) {
+    activeErrorId = id;
+    const modal = document.getElementById('modal-error');
+    document.getElementById('error-modal-code').textContent = code;
+    document.getElementById('error-modal-agent').textContent = 'Origen: ' + agent;
+    document.getElementById('error-modal-stack').textContent = stack;
+
+    const resolveBtn = document.getElementById('error-modal-resolve-btn');
+    const badge = document.getElementById('badge-status-' + id);
+    if (badge && badge.textContent.trim().toLowerCase() === 'resuelto') {
+      resolveBtn.classList.add('opacity-50', 'pointer-events-none');
+      resolveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span> Ya Resuelto';
+    } else {
+      resolveBtn.classList.remove('opacity-50', 'pointer-events-none');
+      resolveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span> Resolver';
+    }
+
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => modal.classList.remove('opacity-0'));
+  }
+
+  function resolveCurrentError() {
+    if (!activeErrorId) return;
+    const badge = document.getElementById('badge-status-' + activeErrorId);
+    if (badge) {
+      badge.textContent = 'Resuelto';
+      badge.className = 'font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-success-dark/20 text-success-dark font-medium';
+    }
+    closeModal('modal-error');
+    showToast('Incidente #' + activeErrorId + ' marcado como resuelto');
+  }
+
+  function saveAgentConfig() {
+    closeModal('modal-agent-config');
+    showToast('Configuración del agente actualizada en caliente');
+  }
+
+  function confirmDeleteUser(name) {
+    closeAllDropdowns();
+    if (confirm('¿Confirma la eliminación del usuario ' + name + '?')) {
+      showToast('Usuario ' + name + ' revocado del sistema');
+    }
+  }
+
+  function confirmDeleteAgent(name) {
+    closeAllDropdowns();
+    if (confirm('¿Desactivar y destruir el agente ' + name + '?')) {
+      showToast('Agente ' + name + ' desmantelado correctamente');
+    }
+  }
+
+  // Global Toast Function
+  let toastTimeout;
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+    if (!toast || !toastText) return;
+
+    toastText.textContent = message;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 2800);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-[#0B0F17]/85 backdrop-blur-xl border-t border-border-dark" data-active-classes="text-primary-dark font-title-md"><div class="flex justify-around items-center h-16 px-space-xs max-w-lg mx-auto"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-colors relative text-primary-dark font-title-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm mt-0.5">Panel</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-text-secondary-dark transition-colors relative" data-path="agentes" href="#"><span class="material-symbols-outlined text-[22px]">smart_toy</span><span class="font-label-sm text-label-sm mt-0.5">Agentes</span><span class="absolute top-1 right-2 w-2 h-2 rounded-full bg-primary-dark"></span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-text-secondary-dark transition-colors relative" data-path="skills" href="#"><span class="material-symbols-outlined text-[22px]">bolt</span><span class="font-label-sm text-label-sm mt-0.5">Skills</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-text-secondary-dark transition-colors relative" data-path="contrataciones" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-sm text-label-sm mt-0.5">Contratos</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-text-secondary-dark transition-colors relative" data-path="errores" href="#"><span class="material-symbols-outlined text-[22px]">error_outline</span><span class="font-label-sm text-label-sm mt-0.5">Errores</span><span class="absolute top-0.5 right-2 px-1.5 py-0.2 rounded-full bg-danger-dark text-white font-label-xs text-label-xs">3</span></a></div></nav></body></html>
