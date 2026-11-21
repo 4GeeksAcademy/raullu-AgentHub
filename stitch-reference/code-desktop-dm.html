@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-primary":"#b4c5ff","surface-dark":"#111827","on-surface":"#F8FAFC","on-primary-container":"#ffffff","error":"#EF4444","on-error-container":"#fca5a5","error-container":"#EF4444","surface-variant":"#1E293B","primary-container":"#3B82F6","text-primary-light":"#0F172A","bg-base-light":"#F8FAFC","on-surface-variant":"#94A3B8","primary":"#3B82F6","on-background":"#F8FAFC","text-muted-dark":"#64748B","warning-light":"#F59E0B","background":"#0B0F17","surface-hover-light":"#1F2937","surface-hover-dark":"#1F2937","danger-light":"#EF4444","tertiary-fixed":"#ffdbcd","surface-light":"#111827","on-secondary-fixed":"#0d1c2e","border-light":"#1F2937","surface-dim":"#111827","success-dark":"#22C55E","text-primary-dark":"#F8FAFC","on-primary-fixed-variant":"#003ea8","outline-variant":"#1F2937","success-light":"#22C55E","on-secondary-fixed-variant":"#3a485b","surface-container-low":"#111827","primary-fixed":"#dbe1ff","danger-dark":"#EF4444","bg-base-dark":"#0B0F17","secondary-fixed":"#1E293B","outline":"#1F2937","on-primary-fixed":"#00174b","tertiary-container":"#bc4800","border-dark":"#1F2937","surface":"#111827","on-tertiary":"#ffffff","on-tertiary-fixed":"#360f00","on-secondary-container":"#94A3B8","surface-tint":"#3B82F6","primary-dark":"#3B82F6","text-secondary-light":"#94A3B8","on-tertiary-fixed-variant":"#7d2d00","on-primary":"#ffffff","secondary":"#94A3B8","tertiary":"#F59E0B","secondary-container":"#1E293B","warning-dark":"#F59E0B","tertiary-fixed-dim":"#ffb596","surface-container-highest":"#1E293B","on-tertiary-container":"#ffede6","surface-container-lowest":"#0B0F17","on-error":"#ffffff","inverse-surface":"#faf8ff","primary-fixed-dim":"#b4c5ff","surface-bright":"#111827","surface-container-high":"#1E293B","secondary-fixed-dim":"#334155","text-secondary-dark":"#94A3B8","inverse-on-surface":"#131b2e","on-secondary":"#ffffff","surface-container":"#111827","text-muted-light":"#94A3B8"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xl":"1.5rem","space-md":"0.75rem","margin-mobile":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","margin":"1.5rem","gutter":"1rem","space-lg":"1rem","gutter-mobile":"0.75rem"},fontFamily:{"body-md":["Inter"],"display-lg":["Inter"],"title-md":["Inter"],"title-lg":["Inter"],"body-sm":["Inter"],"display-lg-mobile":["Inter"],"label-xs":["Inter"],"label-sm":["Inter"]},fontSize:{"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"display-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-md":["15px",{lineHeight:"20px",fontWeight:"600"}],"title-lg":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"18px",fontWeight:"400"}],"display-lg-mobile":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-xs":["10px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}]}}}};</script></head><body class="bg-[#0B0F17] font-body-md text-[#F8FAFC] antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-[#0F172A] border-r border-[#1F2937] z-50 flex flex-col"><div class="h-14 px-space-md flex items-center justify-between bg-[#0F172A] border-b border-[#1F2937]"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-[#3B82F6] flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px]">hub</span></div><span class="font-title-lg text-title-lg text-[#F8FAFC] tracking-tight font-bold">AgentHub</span></div><button class="w-9 h-9 rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#1F2937] hover:text-[#F8FAFC] transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">menu_open</span></button></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm py-1 bg-[#111827] border border-[#1F2937] rounded-lg"><span class="font-label-xs text-label-xs text-[#94A3B8] uppercase">Env</span><span class="font-label-xs text-label-xs font-semibold px-2 py-0.5 rounded-full bg-[#1E293B] text-[#94A3B8] border border-[#1F2937]">Producción v2.4.1</span></div></div><nav class="flex-1 px-space-sm py-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-[#3B82F6] text-white font-semibold"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg transition-colors min-h-[44px] bg-[#3B82F6] text-white font-semibold" data-path="overview" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-title-md text-title-md">Overview</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#94A3B8] hover:bg-[#1F2937] hover:text-[#F8FAFC] transition-colors min-h-[44px]" data-path="ai-agents" href="#"><span class="material-symbols-outlined text-[22px]">smart_toy</span><span class="font-title-md text-title-md">AI Agents</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#94A3B8] hover:bg-[#1F2937] hover:text-[#F8FAFC] transition-colors min-h-[44px]" data-path="human-operators" href="#"><span class="material-symbols-outlined text-[22px]">support_agent</span><span class="font-title-md text-title-md">Human Operators</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#94A3B8] hover:bg-[#1F2937] hover:text-[#F8FAFC] transition-colors min-h-[44px]" data-path="automated-skills" href="#"><span class="material-symbols-outlined text-[22px]">psychology</span><span class="font-title-md text-title-md">Automated Skills</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#94A3B8] hover:bg-[#1F2937] hover:text-[#F8FAFC] transition-colors min-h-[44px]" data-path="incident-logs" href="#"><span class="material-symbols-outlined text-[22px]">crisis_alert</span><span class="font-title-md text-title-md">Incident Logs</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-[#94A3B8] hover:bg-[#1F2937] hover:text-[#F8FAFC] transition-colors min-h-[44px]" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">settings</span><span class="font-title-md text-title-md">Settings</span></a></nav><div class="p-space-sm bg-[#0F172A] border-t border-[#1F2937]"><div class="flex items-center justify-between p-space-sm rounded-lg bg-[#111827] border border-[#1F2937]"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center"><span class="material-symbols-outlined text-white text-[18px]">person</span></div><div class="flex flex-col"><span class="font-title-md text-title-md leading-tight text-[#F8FAFC] truncate">Operator Admin</span><span class="font-label-xs text-label-xs text-[#94A3B8]">Tablet Station #4</span></div></div><button class="w-8 h-8 flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC]" type="button"><span class="material-symbols-outlined text-[18px]">logout</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-[#0B0F17]/90 backdrop-blur-xl border-b border-[#1F2937] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm min-w-0"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-[#94A3B8]"><span class="font-semibold text-[#F8FAFC]">AgentHub</span><span class="material-symbols-outlined text-[16px]">chevron_right</span><span class="truncate">Active Workspace</span></div><span class="hidden sm:inline-flex items-center font-label-xs text-label-xs font-semibold px-2 py-0.5 rounded-full bg-[#1E293B] text-[#94A3B8] border border-[#1F2937]">Producción v2.4.1</span></div><div class="flex items-center gap-space-sm"><div class="flex items-center p-0.5 rounded-full bg-[#111827] border border-[#1F2937]"><button aria-label="Switch to light mode" class="px-2 py-1 rounded-full flex items-center gap-1 font-label-xs text-label-xs text-[#94A3B8] hover:text-[#F8FAFC] transition-colors" onclick="toggleTheme()" type="button"><span class="material-symbols-outlined text-[14px]">light_mode</span><span>Light</span></button><button aria-label="Switch to dark mode" class="px-2 py-1 rounded-full flex items-center gap-1 font-label-xs text-label-xs bg-[#1F2937] text-[#F8FAFC] shadow-sm font-semibold" onclick="toggleTheme()" type="button"><span class="material-symbols-outlined text-[14px]">dark_mode</span><span>Dark</span></button></div><button aria-label="Notifications" class="w-9 h-9 rounded-lg flex items-center justify-center text-[#94A3B8] hover:bg-[#1E293B] hover:text-[#F8FAFC] transition-colors border border-[#1F2937]" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center"><span class="material-symbols-outlined text-white text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full px-space-lg bg-[#0B0F17] min-h-screen"><div class="flex flex-col w-full pb-16">
+<!-- Tablet Tactical Sub-Nav Bar -->
+<div class="sticky top-0 z-30 flex items-center justify-between py-space-sm px-space-md mb-space-lg bg-[#111827]/95 backdrop-blur-md rounded-xl border border-[#1F2937] shadow-sm">
+<div class="flex items-center gap-space-sm overflow-x-auto no-scrollbar py-1">
+<button class="view-tab-btn flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-title-md text-title-md transition-all active:scale-95 whitespace-nowrap shadow-sm font-semibold" data-nav-btn="dashboard" onclick="switchView('dashboard')" type="button">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+<span>Dashboard</span>
+</button>
+<button class="view-tab-btn flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#1E293B] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1F2937] font-title-md text-title-md transition-all active:scale-95 whitespace-nowrap border border-[#1F2937]" data-nav-btn="usuarios" onclick="switchView('usuarios')" type="button">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span>Usuarios</span>
+</button>
+<button class="view-tab-btn flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#1E293B] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1F2937] font-title-md text-title-md transition-all active:scale-95 whitespace-nowrap border border-[#1F2937]" data-nav-btn="agentes" onclick="switchView('agentes')" type="button">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+<span>Agentes</span>
+</button>
+<button class="view-tab-btn flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#1E293B] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1F2937] font-title-md text-title-md transition-all active:scale-95 whitespace-nowrap border border-[#1F2937]" data-nav-btn="skills" onclick="switchView('skills')" type="button">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>Skills</span>
+</button>
+<button class="view-tab-btn flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#1E293B] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1F2937] font-title-md text-title-md transition-all active:scale-95 whitespace-nowrap border border-[#1F2937]" data-nav-btn="contrataciones" onclick="switchView('contrataciones')" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Contrataciones</span>
+</button>
+<button class="view-tab-btn flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#1E293B] text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1F2937] font-title-md text-title-md transition-all active:scale-95 whitespace-nowrap border border-[#1F2937]" data-nav-btn="errores" onclick="switchView('errores')" type="button">
+<span class="material-symbols-outlined text-[18px]">error</span>
+<span>Errores</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-[#EF4444] text-white font-label-xs text-label-xs">1</span>
+</button>
+</div>
+<!-- Right Controls Quick Pill -->
+<div class="hidden sm:flex items-center gap-space-sm pl-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1E293B] border border-[#1F2937] font-label-xs text-label-xs text-[#94A3B8]">
+<span class="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse"></span>
+<span class="font-semibold text-[#F8FAFC]">Producción</span> v2.4.1
+      </span>
+<button class="w-10 h-10 rounded-lg bg-[#1E293B] border border-[#1F2937] flex items-center justify-center text-[#F8FAFC] hover:bg-[#1F2937] active:scale-90 transition-all" onclick="toggleTheme()" title="Toggle Theme" type="button">
+<span class="material-symbols-outlined text-[20px]" id="theme-icon">light_mode</span>
+</button>
+</div>
+</div>
+<!-- VIEW 1: DASHBOARD -->
+<section class="view-pane flex flex-col gap-space-lg" id="view-dashboard">
+<!-- View Header Title with Touch Filter -->
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div>
+<p class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Consola Central</p>
+<h1 class="font-display-lg text-display-lg text-[#F8FAFC]">Métricas de Operación</h1>
+</div>
+<div class="flex items-center gap-2 bg-[#111827] border border-[#1F2937] p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded-lg bg-[#1E293B] text-[#F8FAFC] border border-[#1F2937] font-label-sm text-label-sm shadow-sm font-semibold" type="button">Semana en curso</button>
+<button class="px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#F8FAFC] font-label-sm text-label-sm" type="button">Mes previo</button>
+<button class="px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#F8FAFC] font-label-sm text-label-sm" type="button">Trimestre</button>
+</div>
+</div>
+<!-- 2x2 KPI Cards Responsive Grid for Tablets -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- KPI 1: Ingresos -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between min-h-[140px] group hover:border-[#3B82F6]/50 transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8]">Facturación Consolidada</span>
+<div class="font-display-lg text-display-lg text-[#F8FAFC] font-bold tracking-tight">€ 48.250</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-[#3B82F6]/15 border border-[#3B82F6]/30 flex items-center justify-center text-[#3B82F6]">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +14.8%
+          </span>
+<span class="font-body-sm text-body-sm text-[#94A3B8]">vs semana previa</span>
+</div>
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-[#3B82F6]/10 rounded-full blur-xl pointer-events-none"></div>
+</div>
+<!-- KPI 2: Perdidas -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between min-h-[140px] group hover:border-[#EF4444]/50 transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8]">Desviaciones &amp; Pérdidas</span>
+<div class="font-display-lg text-display-lg text-[#EF4444] font-bold tracking-tight">€ 3.120</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-[#EF4444]/15 border border-[#EF4444]/30 flex items-center justify-center text-[#EF4444]">
+<span class="material-symbols-outlined text-[24px]">trending_down</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-[#EF4444]/15 border border-[#EF4444]/30 text-[#EF4444] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">north_east</span> +2.1%
+          </span>
+<span class="font-body-sm text-body-sm text-[#94A3B8]">Costes por timeouts de API</span>
+</div>
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-[#EF4444]/10 rounded-full blur-xl pointer-events-none"></div>
+</div>
+<!-- KPI 3: Agentes Activos -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between min-h-[140px] group hover:border-[#22C55E]/50 transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8]">Flota Desplegada</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-[#F8FAFC] font-bold tracking-tight">3</span>
+<span class="font-title-md text-title-md text-[#94A3B8]">/ 4 unidades</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E]">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+<span class="font-body-sm text-body-sm text-[#94A3B8]">Atlas, Orion y Lumina en servicio</span>
+</div>
+</div>
+<!-- KPI 4: Agentes Fallando -->
+<div class="relative overflow-hidden p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between min-h-[140px] group hover:border-[#EF4444]/50 transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8]">Incidencias Críticas</span>
+<div class="font-display-lg text-display-lg text-[#EF4444] font-bold tracking-tight">1</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-[#EF4444]/15 border border-[#EF4444]/30 flex items-center justify-center text-[#EF4444] animate-pulse">
+<span class="material-symbols-outlined text-[24px]">crisis_alert</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-[#EF4444] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span> Northstar Operations desconectado
+          </span>
+<button class="px-2 py-1 rounded bg-[#EF4444]/15 border border-[#EF4444]/30 text-[#EF4444] hover:bg-[#EF4444]/25 font-label-xs text-label-xs font-bold transition-colors" onclick="switchView('errores')" type="button">
+            Diagnóstico
+          </button>
+</div>
+</div>
+</div>
+<!-- Actividad Semanal Consolidada Panel -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h2 class="font-title-lg text-title-lg text-[#F8FAFC]">Actividad semanal consolidada</h2>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Rendimiento de procesamiento de tareas y resolución de tickets</p>
+</div>
+<div class="flex items-center gap-4 text-[#94A3B8] font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-[#3B82F6]"></span>
+<span>Tareas Completadas</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-[#94A3B8]"></span>
+<span>Intervenciones Humanas</span>
+</div>
+</div>
+</div>
+<!-- Inline Visual SVG Chart for Tablet Display -->
+<div class="w-full h-56 pt-4 flex flex-col justify-end">
+<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 700 180">
+<defs>
+<lineargradient id="primaryGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="secondaryGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#94A3B8" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#94A3B8" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal guideline grid -->
+<line stroke="#1F2937" stroke-dasharray="4 4" stroke-opacity="0.8" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="#1F2937" stroke-dasharray="4 4" stroke-opacity="0.8" x1="0" x2="700" y1="80" y2="80"></line>
+<line stroke="#1F2937" stroke-dasharray="4 4" stroke-opacity="0.8" x1="0" x2="700" y1="130" y2="130"></line>
+<!-- Filled gradient areas -->
+<path d="M 20 120 Q 120 70 230 90 T 450 40 T 680 25 L 680 170 L 20 170 Z" fill="url(#primaryGrad)"></path>
+<path d="M 20 150 Q 120 130 230 140 T 450 110 T 680 95 L 680 170 L 20 170 Z" fill="url(#secondaryGrad)"></path>
+<!-- High-definition smoothed paths -->
+<path d="M 20 120 Q 120 70 230 90 T 450 40 T 680 25" fill="none" stroke="#3B82F6" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 20 150 Q 120 130 230 140 T 450 110 T 680 95" fill="none" stroke="#94A3B8" stroke-dasharray="2 3" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Focal Data Points with Pulse Rings -->
+<circle cx="230" cy="90" fill="#3B82F6" r="5"></circle>
+<circle cx="450" cy="40" fill="#3B82F6" r="5"></circle>
+<circle cx="680" cy="25" fill="#3B82F6" r="6"></circle>
+<circle class="animate-ping" cx="680" cy="25" r="10" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1.5"></circle>
+</svg>
+<!-- Dynamic Day Labels -->
+<div class="grid grid-cols-7 text-center pt-2 font-label-xs text-label-xs text-[#94A3B8] font-semibold">
+<span>LUN</span>
+<span>MAR</span>
+<span>MIÉ</span>
+<span>JUE</span>
+<span>VIE</span>
+<span>SÁB</span>
+<span class="text-[#3B82F6] font-bold">DOM (HOY)</span>
+</div>
+</div>
+<!-- Quick Consolidated Metrics Cards Row -->
+<div class="grid grid-cols-3 gap-space-sm pt-2">
+<div class="p-3 rounded-lg bg-[#0F172A] border border-[#1F2937] flex flex-col">
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Rendimiento global</span>
+<span class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">98.4%</span>
+<span class="font-label-xs text-label-xs text-[#22C55E]">Dentro del SLA</span>
+</div>
+<div class="p-3 rounded-lg bg-[#0F172A] border border-[#1F2937] flex flex-col">
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Tiempo mediano</span>
+<span class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">1.4s</span>
+<span class="font-label-xs text-label-xs text-[#3B82F6]">-0.3s optimizado</span>
+</div>
+<div class="p-3 rounded-lg bg-[#0F172A] border border-[#1F2937] flex flex-col">
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Coste inferencia</span>
+<span class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">€ 0.004</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">por operación</span>
+</div>
+</div>
+</div>
+</section>
+<!-- VIEW 2: USUARIOS -->
+<section class="view-pane hidden flex-col gap-space-lg" id="view-usuarios">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div>
+<p class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Control de Acceso</p>
+<h1 class="font-display-lg text-display-lg text-[#F8FAFC]">Gestión de Usuarios</h1>
+</div>
+<button class="h-10 px-4 rounded-lg bg-[#3B82F6] text-white font-title-md text-title-md flex items-center gap-1.5 active:scale-95 transition-all shadow-sm font-semibold" onclick="alert('Nuevo usuario: formulario de alta disponible para SuperAdmins')" type="button">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span>Añadir Operador</span>
+</button>
+</div>
+<!-- Responsive Tablet User Cards Grid / Table representation -->
+<div class="bg-[#111827] border border-[#1F2937] rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#1E293B] text-[#94A3B8] font-label-sm text-label-sm uppercase border-b border-[#1F2937]">
+<th class="py-3.5 px-4">Operador</th>
+<th class="py-3.5 px-4">Rol &amp; Asignación</th>
+<th class="py-3.5 px-4">Dispositivo</th>
+<th class="py-3.5 px-4">Estado</th>
+<th class="py-3.5 px-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1F2937] text-[#F8FAFC] font-body-sm text-body-sm">
+<!-- Row 1: Marta Ruiz -->
+<tr class="hover:bg-[#1E293B]/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#3B82F6]/20 border border-[#3B82F6]/40 text-[#3B82F6] font-title-md text-title-md flex items-center justify-center font-bold">MR</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-[#F8FAFC]">Marta Ruiz</div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">marta.ruiz@agenthub.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-semibold text-[#F8FAFC]">Supervisor L3</span>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Cluster Europa Sur</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-[#94A3B8]">
+<span class="material-symbols-outlined text-[16px]">tablet_mac</span> iPad Pro 11"
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">Activo</span>
+</td>
+<td class="py-3.5 px-4 text-right relative">
+<button class="w-9 h-9 rounded-lg hover:bg-[#1E293B] inline-flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC]" onclick="toggleUserDropdown(event, 'u1')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="user-menu hidden absolute right-4 top-12 w-44 rounded-xl bg-[#1E293B] border border-[#1F2937] shadow-xl z-50 p-1 flex-col text-left" id="drop-u1">
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#F8FAFC] hover:bg-[#111827] flex items-center gap-2 text-left" onclick="openDetailModal('Marta Ruiz', 'Supervisor L3', 'marta.ruiz@agenthub.io', '342 intervenciones', '99.8% resolución')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Ver detalle
+                  </button>
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#EF4444] hover:bg-[#EF4444]/15 flex items-center gap-2 text-left" onclick="confirmDeleteUser('Marta Ruiz')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span> Eliminar
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Daniel Vega -->
+<tr class="hover:bg-[#1E293B]/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] font-title-md text-title-md flex items-center justify-center font-bold">DV</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-[#F8FAFC]">Daniel Vega</div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">daniel.vega@agenthub.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-semibold text-[#F8FAFC]">Operador Técnico</span>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Atlas Research Focus</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-[#94A3B8]">
+<span class="material-symbols-outlined text-[16px]">desktop_windows</span> Workstation #2
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">Activo</span>
+</td>
+<td class="py-3.5 px-4 text-right relative">
+<button class="w-9 h-9 rounded-lg hover:bg-[#1E293B] inline-flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC]" onclick="toggleUserDropdown(event, 'u2')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="user-menu hidden absolute right-4 top-12 w-44 rounded-xl bg-[#1E293B] border border-[#1F2937] shadow-xl z-50 p-1 flex-col text-left" id="drop-u2">
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#F8FAFC] hover:bg-[#111827] flex items-center gap-2 text-left" onclick="openDetailModal('Daniel Vega', 'Operador Técnico', 'daniel.vega@agenthub.io', '210 intervenciones', '98.2% resolución')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Ver detalle
+                  </button>
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#EF4444] hover:bg-[#EF4444]/15 flex items-center gap-2 text-left" onclick="confirmDeleteUser('Daniel Vega')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span> Eliminar
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Lucia Torres -->
+<tr class="hover:bg-[#1E293B]/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#3B82F6]/20 border border-[#3B82F6]/40 text-[#3B82F6] font-title-md text-title-md flex items-center justify-center font-bold">LT</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-[#F8FAFC]">Lucia Torres</div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">lucia.torres@agenthub.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-semibold text-[#F8FAFC]">Prompt Engineer</span>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Skills &amp; Automatizaciones</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-[#94A3B8]">
+<span class="material-symbols-outlined text-[16px]">tablet</span> Galaxy Tab S9
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] font-label-xs text-label-xs font-bold">En Pausa</span>
+</td>
+<td class="py-3.5 px-4 text-right relative">
+<button class="w-9 h-9 rounded-lg hover:bg-[#1E293B] inline-flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC]" onclick="toggleUserDropdown(event, 'u3')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="user-menu hidden absolute right-4 top-12 w-44 rounded-xl bg-[#1E293B] border border-[#1F2937] shadow-xl z-50 p-1 flex-col text-left" id="drop-u3">
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#F8FAFC] hover:bg-[#111827] flex items-center gap-2 text-left" onclick="openDetailModal('Lucia Torres', 'Prompt Engineer', 'lucia.torres@agenthub.io', '523 ajustes de skill', 'Sin fallos reportados')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Ver detalle
+                  </button>
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#EF4444] hover:bg-[#EF4444]/15 flex items-center gap-2 text-left" onclick="confirmDeleteUser('Lucia Torres')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span> Eliminar
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Carlos Mendez -->
+<tr class="hover:bg-[#1E293B]/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] font-title-md text-title-md flex items-center justify-center font-bold">CM</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-[#F8FAFC]">Carlos Mendez</div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">carlos.mendez@agenthub.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-semibold text-[#F8FAFC]">Auditor de Seguridad</span>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Cumplimiento RGPD / ISO</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-[#94A3B8]">
+<span class="material-symbols-outlined text-[16px]">laptop</span> MacBook Air M3
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">Activo</span>
+</td>
+<td class="py-3.5 px-4 text-right relative">
+<button class="w-9 h-9 rounded-lg hover:bg-[#1E293B] inline-flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC]" onclick="toggleUserDropdown(event, 'u4')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="user-menu hidden absolute right-4 top-12 w-44 rounded-xl bg-[#1E293B] border border-[#1F2937] shadow-xl z-50 p-1 flex-col text-left" id="drop-u4">
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#F8FAFC] hover:bg-[#111827] flex items-center gap-2 text-left" onclick="openDetailModal('Carlos Mendez', 'Auditor de Seguridad', 'carlos.mendez@agenthub.io', '84 auditorías', 'Certificado v2')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Ver detalle
+                  </button>
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#EF4444] hover:bg-[#EF4444]/15 flex items-center gap-2 text-left" onclick="confirmDeleteUser('Carlos Mendez')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span> Eliminar
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Elena Soto -->
+<tr class="hover:bg-[#1E293B]/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] font-title-md text-title-md flex items-center justify-center font-bold">ES</div>
+<div>
+<div class="font-title-md text-title-md font-semibold text-[#F8FAFC]">Elena Soto</div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">elena.soto@agenthub.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-semibold text-[#F8FAFC]">Agente de Soporte Nivel 2</span>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Atención Clientes VIP</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-[#94A3B8]">
+<span class="material-symbols-outlined text-[16px]">tablet_android</span> Tablet Station #4
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#94A3B8]/20 border border-[#94A3B8]/30 text-[#94A3B8] font-label-xs text-label-xs font-bold">Desconectado</span>
+</td>
+<td class="py-3.5 px-4 text-right relative">
+<button class="w-9 h-9 rounded-lg hover:bg-[#1E293B] inline-flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC]" onclick="toggleUserDropdown(event, 'u5')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="user-menu hidden absolute right-4 top-12 w-44 rounded-xl bg-[#1E293B] border border-[#1F2937] shadow-xl z-50 p-1 flex-col text-left" id="drop-u5">
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#F8FAFC] hover:bg-[#111827] flex items-center gap-2 text-left" onclick="openDetailModal('Elena Soto', 'Agente Soporte Nivel 2', 'elena.soto@agenthub.io', '189 tickets', '94.0% satisfacción')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span> Ver detalle
+                  </button>
+<button class="w-full px-3 py-2 rounded-lg font-body-sm text-body-sm text-[#EF4444] hover:bg-[#EF4444]/15 flex items-center gap-2 text-left" onclick="confirmDeleteUser('Elena Soto')" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span> Eliminar
+                  </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- VIEW 3: AGENTES -->
+<section class="view-pane hidden flex-col gap-space-lg" id="view-agentes">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div>
+<p class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Ecosistema Autónomo</p>
+<h1 class="font-display-lg text-display-lg text-[#F8FAFC]">Agentes Desplegados</h1>
+</div>
+<button class="h-10 px-4 rounded-lg bg-[#3B82F6] text-white font-title-md text-title-md flex items-center gap-1.5 active:scale-95 transition-all shadow-sm font-semibold" onclick="openConfigModal('Nuevo Agente')" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Crear Agente</span>
+</button>
+</div>
+<!-- 4 Agents Accordion Cards -->
+<div class="flex flex-col gap-space-md">
+<!-- Agent 1: Atlas Research -->
+<div class="rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm overflow-hidden transition-all">
+<div class="p-space-lg flex items-center justify-between flex-wrap gap-space-md cursor-pointer select-none" onclick="toggleAccordion('agent-atlas')">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-[#3B82F6]/20 border border-[#3B82F6]/40 text-[#3B82F6] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[28px]">biotech</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Atlas Research</h3>
+<span class="px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Síntesis documental, extracción de patentes y scraping analítico</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937] flex items-center gap-1" onclick="event.stopPropagation(); openConfigModal('Atlas Research')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<span class="material-symbols-outlined text-[24px] text-[#94A3B8] transition-transform" id="icon-agent-atlas">expand_more</span>
+</div>
+</div>
+<!-- Accordion Content -->
+<div class="hidden p-space-lg pt-0 bg-[#0F172A]/60 border-t border-[#1F2937]" id="agent-atlas">
+<div class="pt-4 space-y-3">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Skills Asignadas &amp; Parámetros</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="p-3 rounded-lg bg-[#111827] border border-[#1F2937] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#3B82F6] text-[20px]">travel_explore</span>
+<div>
+<div class="font-title-md text-title-md text-[#F8FAFC]">Navegación Web Concurrente</div>
+<div class="font-body-sm text-body-sm text-[#94A3B8]">Motor Chromium headless con rotación de proxies residenciales</div>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-[#111827] border border-[#1F2937] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#3B82F6] text-[20px]">description</span>
+<div>
+<div class="font-title-md text-title-md text-[#F8FAFC]">Lectura OCR de Documentos</div>
+<div class="font-body-sm text-body-sm text-[#94A3B8]">Parseo estructurado de PDF complejos, balances y hojas técnicas</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 text-[#94A3B8] font-label-sm text-label-sm">
+<span>Carga actual: 42% (3 hilos)</span>
+<span>Última sincronización: hace 4 min</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 2: Orion Support -->
+<div class="rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm overflow-hidden transition-all">
+<div class="p-space-lg flex items-center justify-between flex-wrap gap-space-md cursor-pointer select-none" onclick="toggleAccordion('agent-orion')">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[28px]">support_agent</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Orion Support</h3>
+<span class="px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Resolución automática de tickets y enrutamiento inteligente de incidencias</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937] flex items-center gap-1" onclick="event.stopPropagation(); openConfigModal('Orion Support')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<span class="material-symbols-outlined text-[24px] text-[#94A3B8] transition-transform" id="icon-agent-orion">expand_more</span>
+</div>
+</div>
+<!-- Accordion Content -->
+<div class="hidden p-space-lg pt-0 bg-[#0F172A]/60 border-t border-[#1F2937]" id="agent-orion">
+<div class="pt-4 space-y-3">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Skills Asignadas &amp; Parámetros</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="p-3 rounded-lg bg-[#111827] border border-[#1F2937] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#3B82F6] text-[20px]">smart_toy</span>
+<div>
+<div class="font-title-md text-title-md text-[#F8FAFC]">Automatización Multicanal</div>
+<div class="font-body-sm text-body-sm text-[#94A3B8]">Interacción directa en Slack, Teams, Zendesk y correo electrónico</div>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-[#111827] border border-[#1F2937] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#3B82F6] text-[20px]">sentiment_satisfied</span>
+<div>
+<div class="font-title-md text-title-md text-[#F8FAFC]">Análisis de Sentimiento</div>
+<div class="font-body-sm text-body-sm text-[#94A3B8]">Escalado prioritario si detecta disconformidad grave del cliente</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 3: Lumina Scheduler -->
+<div class="rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm overflow-hidden transition-all">
+<div class="p-space-lg flex items-center justify-between flex-wrap gap-space-md cursor-pointer select-none" onclick="toggleAccordion('agent-lumina')">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-[#3B82F6]/20 border border-[#3B82F6]/40 text-[#3B82F6] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[28px]">calendar_month</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Lumina Scheduler</h3>
+<span class="px-2 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">Activo</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Coordinación de agendas directivas, salas y citas comerciales internacionales</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937] flex items-center gap-1" onclick="event.stopPropagation(); openConfigModal('Lumina Scheduler')" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configurar
+            </button>
+<span class="material-symbols-outlined text-[24px] text-[#94A3B8] transition-transform" id="icon-agent-lumina">expand_more</span>
+</div>
+</div>
+<div class="hidden p-space-lg pt-0 bg-[#0F172A]/60 border-t border-[#1F2937]" id="agent-lumina">
+<div class="pt-4 space-y-3">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Skills Asignadas &amp; Parámetros</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="p-3 rounded-lg bg-[#111827] border border-[#1F2937] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#3B82F6] text-[20px]">calendar_today</span>
+<div>
+<div class="font-title-md text-title-md text-[#F8FAFC]">Gestión de Calendario</div>
+<div class="font-body-sm text-body-sm text-[#94A3B8]">Sincronización bidireccional CalDAV, Google Calendar y Microsoft 365</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 4: Northstar Operations -->
+<div class="rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm overflow-hidden transition-all">
+<div class="p-space-lg flex items-center justify-between flex-wrap gap-space-md cursor-pointer select-none" onclick="toggleAccordion('agent-northstar')">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-[#EF4444]/20 border border-[#EF4444]/40 text-[#EF4444] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[28px]">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Northstar Operations</h3>
+<span class="px-2 py-0.5 rounded-full bg-[#EF4444]/15 border border-[#EF4444]/30 text-[#EF4444] font-label-xs text-label-xs font-bold">Fallando</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Orquestación continua de backups y pipelines de procesamiento batch</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 rounded-lg bg-[#EF4444] text-white font-label-sm text-label-sm hover:opacity-90 flex items-center gap-1 font-semibold" onclick="event.stopPropagation(); openConfigModal('Northstar Operations')" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span> Reiniciar
+            </button>
+<span class="material-symbols-outlined text-[24px] text-[#94A3B8] transition-transform" id="icon-agent-northstar">expand_more</span>
+</div>
+</div>
+<div class="hidden p-space-lg pt-0 bg-[#0F172A]/60 border-t border-[#1F2937]" id="agent-northstar">
+<div class="pt-4 space-y-3">
+<div class="p-3 rounded-lg bg-[#EF4444]/15 border border-[#EF4444]/30 text-[#EF4444] font-body-sm text-body-sm flex items-center justify-between">
+<span>Fallo de autenticación en Webhook de AWS S3. Tareas suspendidas por seguridad.</span>
+<button class="underline font-bold" onclick="switchView('errores')" type="button">Ver Traza</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- VIEW 4: SKILLS -->
+<section class="view-pane hidden flex-col gap-space-lg" id="view-skills">
+<!-- Intro Header -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Capacidades Modulares</span>
+<h1 class="font-display-lg text-display-lg text-[#F8FAFC]">Catálogo de Skills Autónomas</h1>
+<p class="font-body-sm text-body-sm text-[#94A3B8] max-w-2xl">
+          Las skills representan módulos funcionales deterministas y basados en modelos de lenguaje calibrados que se asignan a cualquier agente del ecosistema de manera dinámica y en caliente.
+        </p>
+</div>
+<button class="h-10 px-4 rounded-lg bg-[#3B82F6] text-white font-title-md text-title-md flex items-center gap-1.5 shrink-0 active:scale-95 transition-all font-semibold shadow-sm" onclick="alert('Constructor de Skills: cargando biblioteca de prompts')" type="button">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span>Añadir Skill</span>
+</button>
+</div>
+<!-- Responsive Cards for Skills (4 core skills) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Skill 1 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between hover:border-[#3B82F6]/50 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-[#3B82F6] flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">travel_explore</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-xs text-label-xs font-semibold">v3.1.0</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Navegación Web</h3>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">
+            Exploración de portales web interactivos, manejo de JavaScript dinámico, clics automáticos, bypass de captchas empresariales y recolección estructurada en formato JSON.
+          </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-[#94A3B8] font-label-sm text-label-sm border-t border-[#1F2937]">
+<span>Asignado a: Atlas Research</span>
+<button class="text-[#3B82F6] font-bold hover:underline" onclick="alert('Detalles de Navegación Web abiertos')" type="button">Inspeccionar</button>
+</div>
+</div>
+<!-- Skill 2 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between hover:border-[#3B82F6]/50 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-xs text-label-xs font-semibold">v2.8.4</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Lectura de Documentos</h3>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">
+            Comprensión semántica de archivos PDF, DOCX, XLSX y TIFF escaneados. Extracción de tablas contables complejas, contratos legales y resumen de cláusulas vinculantes.
+          </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-[#94A3B8] font-label-sm text-label-sm border-t border-[#1F2937]">
+<span>Asignado a: Atlas Research, Orion</span>
+<button class="text-[#3B82F6] font-bold hover:underline" onclick="alert('Detalles de Lectura de Documentos')" type="button">Inspeccionar</button>
+</div>
+</div>
+<!-- Skill 3 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between hover:border-[#3B82F6]/50 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-[#3B82F6] flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">calendar_month</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-xs text-label-xs font-semibold">v1.9.0</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Gestión de Calendario</h3>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">
+            Detección de solapamientos horarios, resolución de reservas de sala, proposición de huecos óptimos entre zonas horarias internacionales y confirmación automática con asistentes.
+          </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-[#94A3B8] font-label-sm text-label-sm border-t border-[#1F2937]">
+<span>Asignado a: Lumina Scheduler</span>
+<button class="text-[#3B82F6] font-bold hover:underline" onclick="alert('Detalles de Gestión de Calendario')" type="button">Inspeccionar</button>
+</div>
+</div>
+<!-- Skill 4 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between hover:border-[#3B82F6]/50 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">bolt</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-xs text-label-xs font-semibold">v4.0.2</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC]">Automatización RPA</h3>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">
+            Disparadores mediante webhooks, ejecución de scripts remotos, emulación de teclado y puntero en entornos virtuales Citrix y actualización directa de bases SQL legadas.
+          </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-[#94A3B8] font-label-sm text-label-sm border-t border-[#1F2937]">
+<span>Asignado a: Orion, Northstar</span>
+<button class="text-[#3B82F6] font-bold hover:underline" onclick="alert('Detalles de Automatización RPA')" type="button">Inspeccionar</button>
+</div>
+</div>
+</div>
+</section>
+<!-- VIEW 5: CONTRATACIONES -->
+<section class="view-pane hidden flex-col gap-space-lg" id="view-contrataciones">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div>
+<p class="font-label-xs text-label-xs uppercase tracking-wider text-[#94A3B8] font-bold">Acuerdos y Facturación</p>
+<h1 class="font-display-lg text-display-lg text-[#F8FAFC]">Contratos de Clientes</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-10 px-3 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-title-md text-title-md flex items-center gap-1.5 active:scale-95 transition-all" onclick="alert('Exportando listado de facturas en CSV...')" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span> Exportar
+        </button>
+</div>
+</div>
+<!-- Tablet Friendly Contracts List -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Contract 1 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-[#94A3B8] font-mono">CTR-2024-001</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">Iberia Logistics Global</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">En vigor</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2 text-[#94A3B8] font-body-sm text-body-sm">
+<div>Fecha inicio: <span class="text-[#F8FAFC] font-semibold">15 Ene 2024</span></div>
+<div>Renovación: <span class="text-[#F8FAFC] font-semibold">14 Ene 2025</span></div>
+<div>SLA Acordado: <span class="text-[#F8FAFC] font-semibold">99.9% 24/7</span></div>
+<div>Agentes asignados: <span class="text-[#F8FAFC] font-semibold">Atlas + Orion</span></div>
+</div>
+</div>
+<div class="pt-3 flex items-center justify-between bg-[#0F172A] border border-[#1F2937] p-3 rounded-lg">
+<div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Importe recurrente</div>
+<div class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">€ 14.500 <span class="font-label-xs text-label-xs text-[#94A3B8] font-normal">/mes</span></div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all font-semibold" onclick="openContractBreakdown('Iberia Logistics Global', '€ 14.500', '15 Ene 2024', ['Soporte Orion Enterprise: € 8.000', 'Atlas Scraping Engine: € 5.000', 'SLA Garantizado 15min: € 1.500'])" type="button">
+<span>Ver desglose</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Contract 2 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-[#94A3B8] font-mono">CTR-2024-008</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">Banco Santander Fintech Lab</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">En vigor</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2 text-[#94A3B8] font-body-sm text-body-sm">
+<div>Fecha inicio: <span class="text-[#F8FAFC] font-semibold">01 Feb 2024</span></div>
+<div>Renovación: <span class="text-[#F8FAFC] font-semibold">31 Ene 2025</span></div>
+<div>SLA Acordado: <span class="text-[#F8FAFC] font-semibold">99.95% SOC2</span></div>
+<div>Agentes asignados: <span class="text-[#F8FAFC] font-semibold">Atlas Research</span></div>
+</div>
+</div>
+<div class="pt-3 flex items-center justify-between bg-[#0F172A] border border-[#1F2937] p-3 rounded-lg">
+<div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Importe recurrente</div>
+<div class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">€ 22.000 <span class="font-label-xs text-label-xs text-[#94A3B8] font-normal">/mes</span></div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all font-semibold" onclick="openContractBreakdown('Banco Santander Fintech Lab', '€ 22.000', '01 Feb 2024', ['Atlas Cluster Dedicado: € 15.000', 'Cifrado HSM en tránsito: € 4.000', 'Auditoría continua RGPD: € 3.000'])" type="button">
+<span>Ver desglose</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Contract 3 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-[#94A3B8] font-mono">CTR-2024-014</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">Telefónica Tech Cloud</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/30 text-[#22C55E] font-label-xs text-label-xs font-bold">En vigor</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2 text-[#94A3B8] font-body-sm text-body-sm">
+<div>Fecha inicio: <span class="text-[#F8FAFC] font-semibold">10 Mar 2024</span></div>
+<div>Renovación: <span class="text-[#F8FAFC] font-semibold">09 Mar 2025</span></div>
+<div>SLA Acordado: <span class="text-[#F8FAFC] font-semibold">Standard 99.5%</span></div>
+<div>Agentes asignados: <span class="text-[#F8FAFC] font-semibold">Lumina + Orion</span></div>
+</div>
+</div>
+<div class="pt-3 flex items-center justify-between bg-[#0F172A] border border-[#1F2937] p-3 rounded-lg">
+<div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Importe recurrente</div>
+<div class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">€ 8.750 <span class="font-label-xs text-label-xs text-[#94A3B8] font-normal">/mes</span></div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all font-semibold" onclick="openContractBreakdown('Telefónica Tech Cloud', '€ 8.750', '10 Mar 2024', ['Lumina Scheduler Multi-Tenant: € 3.750', 'Orion Support L2: € 5.000'])" type="button">
+<span>Ver desglose</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Contract 4 -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-[#94A3B8] font-mono">CTR-2024-022</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">Inditex Supply AI</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] font-label-xs text-label-xs font-bold">En Revisión</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2 text-[#94A3B8] font-body-sm text-body-sm">
+<div>Fecha inicio: <span class="text-[#F8FAFC] font-semibold">01 Abr 2024</span></div>
+<div>Renovación: <span class="text-[#F8FAFC] font-semibold">Pendiente firma</span></div>
+<div>SLA Acordado: <span class="text-[#F8FAFC] font-semibold">Tier 1 Extreme</span></div>
+<div>Agentes asignados: <span class="text-[#F8FAFC] font-semibold">Northstar Ops</span></div>
+</div>
+</div>
+<div class="pt-3 flex items-center justify-between bg-[#0F172A] border border-[#1F2937] p-3 rounded-lg">
+<div>
+<div class="font-label-xs text-label-xs text-[#94A3B8]">Importe recurrente</div>
+<div class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">€ 3.000 <span class="font-label-xs text-label-xs text-[#94A3B8] font-normal">/piloto</span></div>
+</div>
+<button class="h-9 px-3 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all font-semibold" onclick="openContractBreakdown('Inditex Supply AI', '€ 3.000', '01 Abr 2024', ['Fase Piloto Northstar: € 3.000', 'Próxima ampliación prevista: € 18.000/mes'])" type="button">
+<span>Ver desglose</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- VIEW 6: ERRORES -->
+<section class="view-pane hidden flex-col gap-space-lg" id="view-errores">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div>
+<p class="font-label-xs text-label-xs uppercase tracking-wider text-[#EF4444] font-bold">Monitor de Estabilidad</p>
+<h1 class="font-display-lg text-display-lg text-[#F8FAFC]">Registro de Incidentes y Excepciones</h1>
+</div>
+<button class="h-10 px-4 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] hover:bg-[#1F2937] font-title-md text-title-md flex items-center gap-1.5 active:scale-95 transition-all shadow-sm" onclick="resolveAllErrors()" type="button">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Resolver Todos</span>
+</button>
+</div>
+<!-- 6 Incidents List with Severity Badges and Stack Trace Modal trigger -->
+<div class="flex flex-col gap-space-sm" id="incidents-container">
+<!-- Incident 1: Crítico -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-[#1E293B]/50 transition-colors" id="inc-1">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-[#EF4444]/15 border border-[#EF4444]/30 text-[#EF4444] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">error</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-[#EF4444] text-white font-label-xs text-label-xs font-bold uppercase">Crítico</span>
+<span class="font-mono text-[#94A3B8] font-label-xs text-label-xs">ERR-9821</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Hace 12 min</span>
+</div>
+<h4 class="font-title-md text-title-md text-[#F8FAFC] font-semibold mt-1">Northstar: S3 Bucket SignatureDoesNotMatch en almacenamiento en frío</h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Fallo al subir snapshots de base de datos a eu-central-1. Llaves rotadas sin sincronización.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="showStackTrace('ERR-9821 - S3 SignatureMismatch', 'com.agenthub.aws.S3Uploader.sync(S3Uploader.kt:142)\n at com.agenthub.workers.BackupWorker.execute(BackupWorker.kt:89)\n Caused by: com.amazonaws.services.s3.model.AmazonS3Exception: The request signature we calculated does not match the signature you provided. Status Code: 403')" type="button">
+            Ver Stack Trace
+          </button>
+<button class="px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm hover:opacity-90 active:scale-95 font-semibold" onclick="resolveSingleError('inc-1')" type="button">
+            Marcar Resuelto
+          </button>
+</div>
+</div>
+<!-- Incident 2: Crítico -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-[#1E293B]/50 transition-colors" id="inc-2">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-[#EF4444]/15 border border-[#EF4444]/30 text-[#EF4444] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">gpp_bad</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-[#EF4444] text-white font-label-xs text-label-xs font-bold uppercase">Crítico</span>
+<span class="font-mono text-[#94A3B8] font-label-xs text-label-xs">ERR-9819</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Hace 34 min</span>
+</div>
+<h4 class="font-title-md text-title-md text-[#F8FAFC] font-semibold mt-1">Concurrencia excedida en clúster OpenAI GPT-4-Turbo</h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Rate limit HTTP 429 alcanzado durante análisis de balance mercantil de 200 páginas.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="showStackTrace('ERR-9819 - OpenAI RateLimit 429', 'ai.openai.client.CompletionService.call(CompletionService.java:210)\n at com.agenthub.skills.DocumentReader.process(DocumentReader.ts:45)\n RateLimitError: Requests per minute limit exceeded. Retry-After: 45s')" type="button">
+            Ver Stack Trace
+          </button>
+<button class="px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm hover:opacity-90 active:scale-95 font-semibold" onclick="resolveSingleError('inc-2')" type="button">
+            Marcar Resuelto
+          </button>
+</div>
+</div>
+<!-- Incident 3: Advertencia -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-[#1E293B]/50 transition-colors" id="inc-3">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-[#F59E0B] text-black font-label-xs text-label-xs font-bold uppercase">Advertencia</span>
+<span class="font-mono text-[#94A3B8] font-label-xs text-label-xs">WRN-4412</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Hace 1h 10min</span>
+</div>
+<h4 class="font-title-md text-title-md text-[#F8FAFC] font-semibold mt-1">Lumina: Respuesta lenta de Microsoft Graph API (&gt;2.8s)</h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Latencia anómala en endpoints de sincronización de calendarios corporativos.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="showStackTrace('WRN-4412 - MS Graph Latency', 'com.agenthub.calendar.GraphConnector.fetchSlots(GraphConnector.ts:89)\n LatencyWarning: Request took 2840ms. Expected: &lt;800ms.')" type="button">
+            Ver Stack Trace
+          </button>
+<button class="px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm hover:opacity-90 active:scale-95 font-semibold" onclick="resolveSingleError('inc-3')" type="button">
+            Marcar Resuelto
+          </button>
+</div>
+</div>
+<!-- Incident 4: Advertencia -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-[#1E293B]/50 transition-colors" id="inc-4">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-[#F59E0B]/15 border border-[#F59E0B]/30 text-[#F59E0B] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-[#F59E0B] text-black font-label-xs text-label-xs font-bold uppercase">Advertencia</span>
+<span class="font-mono text-[#94A3B8] font-label-xs text-label-xs">WRN-4409</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Hace 2h 45min</span>
+</div>
+<h4 class="font-title-md text-title-md text-[#F8FAFC] font-semibold mt-1">Orion: Timeout en webhook entrante de Zendesk</h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Reintento completado con éxito tras 3 repeticiones por caída de red del cliente.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="showStackTrace('WRN-4409 - Zendesk Timeout', 'com.agenthub.integration.ZendeskWebhook.listen(ZendeskWebhook.ts:112)\n ETIMEDOUT: Connection reset by peer at IP 194.22.10.4')" type="button">
+            Ver Stack Trace
+          </button>
+<button class="px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm hover:opacity-90 active:scale-95 font-semibold" onclick="resolveSingleError('inc-4')" type="button">
+            Marcar Resuelto
+          </button>
+</div>
+</div>
+<!-- Incident 5: Informativo -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-[#1E293B]/50 transition-colors" id="inc-5">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-xs text-label-xs font-bold uppercase">Informativo</span>
+<span class="font-mono text-[#94A3B8] font-label-xs text-label-xs">INF-1002</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Hace 3h 12min</span>
+</div>
+<h4 class="font-title-md text-title-md text-[#F8FAFC] font-semibold mt-1">Rotación automática de certificado TLS en Worker #3</h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Let's Encrypt certificado renovado con éxito para agenthub-worker3.internal.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="showStackTrace('INF-1002 - TLS Renewal', 'Certbot executed successfully.\n SHA256 Fingerprint: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n Status: Valid until +90 days.')" type="button">
+            Ver Stack Trace
+          </button>
+<button class="px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm hover:opacity-90 active:scale-95 font-semibold" onclick="resolveSingleError('inc-5')" type="button">
+            Marcar Resuelto
+          </button>
+</div>
+</div>
+<!-- Incident 6: Informativo -->
+<div class="p-space-lg rounded-xl bg-[#111827] border border-[#1F2937] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-[#1E293B]/50 transition-colors" id="inc-6">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#94A3B8] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">memory</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-xs text-label-xs font-bold uppercase">Informativo</span>
+<span class="font-mono text-[#94A3B8] font-label-xs text-label-xs">INF-1001</span>
+<span class="font-label-xs text-label-xs text-[#94A3B8]">Hace 5h 02min</span>
+</div>
+<h4 class="font-title-md text-title-md text-[#F8FAFC] font-semibold mt-1">Escalado horizontal automático activado: Pod 04 listo</h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]">Capacidad ampliada preventivamente debido al pico de consultas matinales.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="showStackTrace('INF-1001 - HPA Trigger', 'k8s-autoscale-daemon.go:55: CPU threshold 75% met.\n Spawned pod: agenthub-agent-fleet-78f99-zlm4p\n Node: worker-pool-c6i.2xlarge. Status: Running.')" type="button">
+            Ver Stack Trace
+          </button>
+<button class="px-3 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm hover:opacity-90 active:scale-95 font-semibold" onclick="resolveSingleError('inc-6')" type="button">
+            Marcar Resuelto
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- MODAL: STACK TRACE VIEWER -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4" id="modal-stack">
+<div class="w-full max-w-2xl bg-[#111827] border border-[#1F2937] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[870px]">
+<div class="p-space-lg bg-[#0F172A] border-b border-[#1F2937] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#EF4444] text-[24px]">terminal</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold" id="stack-title">Traza de Error</h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[#1F2937] text-[#94A3B8] hover:text-[#F8FAFC]" onclick="closeModal('modal-stack')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg overflow-y-auto">
+<pre class="bg-[#0B0F17] border border-[#1F2937] text-emerald-400 font-mono text-[12px] leading-relaxed p-4 rounded-xl overflow-x-auto whitespace-pre-wrap" id="stack-content"></pre>
+</div>
+<div class="p-space-md bg-[#0F172A] border-t border-[#1F2937] flex items-center justify-end gap-2">
+<button class="px-4 py-2 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm flex items-center gap-1 hover:bg-[#1F2937]" onclick="copyStackTrace()" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copiar Traza
+        </button>
+<button class="px-4 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm font-semibold hover:bg-[#2563eb]" onclick="closeModal('modal-stack')" type="button">
+          Cerrar
+        </button>
+</div>
+</div>
+</div>
+<!-- MODAL: AGENT CONFIGURATOR -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4" id="modal-config">
+<div class="w-full max-w-xl bg-[#111827] border border-[#1F2937] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[921px]">
+<div class="p-space-lg bg-[#0F172A] border-b border-[#1F2937] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#3B82F6] text-[24px]">tune</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold" id="config-title">Configurador de Agente</h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[#1F2937] text-[#94A3B8] hover:text-[#F8FAFC]" onclick="closeModal('modal-config')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="p-space-lg flex flex-col gap-space-md overflow-y-auto" onsubmit="saveAgentConfig(event)">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm font-semibold text-[#F8FAFC]">Nombre Identificador</label>
+<input class="w-full h-11 px-3 rounded-lg bg-[#0F172A] border border-[#1F2937] text-[#F8FAFC] font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" id="config-name-input" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm font-semibold text-[#F8FAFC]">Temperatura Modelo</label>
+<input class="w-full h-11 px-3 rounded-lg bg-[#0F172A] border border-[#1F2937] text-[#F8FAFC] font-body-sm text-body-sm focus:outline-none" max="1" min="0" step="0.1" type="number" value="0.2"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm font-semibold text-[#F8FAFC]">Hilos Concurrencia</label>
+<input class="w-full h-11 px-3 rounded-lg bg-[#0F172A] border border-[#1F2937] text-[#F8FAFC] font-body-sm text-body-sm focus:outline-none" max="16" min="1" type="number" value="4"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm font-semibold text-[#F8FAFC]">Estrategia de Fallover</label>
+<select class="w-full h-11 px-3 rounded-lg bg-[#0F172A] border border-[#1F2937] text-[#F8FAFC] font-body-sm text-body-sm focus:outline-none">
+<option>Derivación inmediata a Operador Humano</option>
+<option>Reintento exponencial (3 intentos) + Desconexión</option>
+<option>Degradación a modelo local ligero Llama-3</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm font-semibold text-[#F8FAFC]">Skills Activas</label>
+<div class="space-y-2 font-body-sm text-body-sm text-[#F8FAFC]">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-[#3B82F6] bg-[#0F172A] border-[#1F2937]" type="checkbox"/>
+<span>Navegación Web Interactiva</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-[#3B82F6] bg-[#0F172A] border-[#1F2937]" type="checkbox"/>
+<span>Lectura y Parseo de Documentos</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-[#3B82F6] bg-[#0F172A] border-[#1F2937]" type="checkbox"/>
+<span>Gestión de Calendario</span>
+</label>
+</div>
+</div>
+<div class="pt-4 flex items-center justify-end gap-2 border-t border-[#1F2937]">
+<button class="px-4 py-2.5 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[#F8FAFC] font-label-sm text-label-sm hover:bg-[#1F2937]" onclick="closeModal('modal-config')" type="button">
+            Cancelar
+          </button>
+<button class="px-5 py-2.5 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm font-bold shadow-sm hover:bg-[#2563eb]" type="submit">
+            Guardar Configuración
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- MODAL: CONTRACT BREAKDOWN -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4" id="modal-contract">
+<div class="w-full max-w-lg bg-[#111827] border border-[#1F2937] rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+<div class="p-space-lg bg-[#0F172A] border-b border-[#1F2937] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#3B82F6] text-[24px]">receipt</span>
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold" id="contract-modal-client">Desglose de Contrato</h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[#1F2937] text-[#94A3B8] hover:text-[#F8FAFC]" onclick="closeModal('modal-contract')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg space-y-4">
+<div class="flex items-center justify-between p-3 rounded-xl bg-[#0F172A] border border-[#1F2937]">
+<span class="font-body-sm text-body-sm text-[#94A3B8]">Total mensual facturado</span>
+<span class="font-title-lg text-title-lg text-[#3B82F6] font-bold" id="contract-modal-total"></span>
+</div>
+<div class="space-y-2">
+<span class="font-label-xs text-label-xs uppercase text-[#94A3B8] font-bold">Conceptos incluidos en el SLA:</span>
+<ul class="space-y-2 font-body-sm text-body-sm text-[#F8FAFC]" id="contract-modal-items"></ul>
+</div>
+</div>
+<div class="p-space-md bg-[#0F172A] border-t border-[#1F2937] flex items-center justify-end">
+<button class="px-4 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm font-semibold hover:bg-[#2563eb]" onclick="closeModal('modal-contract')" type="button">
+          Entendido
+        </button>
+</div>
+</div>
+</div>
+<!-- MODAL: USER DETAIL -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 backdrop-blur-sm p-4" id="modal-user">
+<div class="w-full max-w-md bg-[#111827] border border-[#1F2937] rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+<div class="p-space-lg bg-[#0F172A] border-b border-[#1F2937] flex items-center justify-between">
+<h3 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold">Ficha de Operador</h3>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[#1F2937] text-[#94A3B8] hover:text-[#F8FAFC]" onclick="closeModal('modal-user')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col items-center text-center space-y-3">
+<div class="w-16 h-16 rounded-full bg-[#3B82F6] flex items-center justify-center text-white text-[28px] font-bold" id="usr-modal-avatar">
+          OP
+        </div>
+<div>
+<h4 class="font-title-lg text-title-lg text-[#F8FAFC] font-bold" id="usr-modal-name"></h4>
+<p class="font-body-sm text-body-sm text-[#94A3B8]" id="usr-modal-email"></p>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-[#3B82F6] font-label-sm text-label-sm font-bold" id="usr-modal-role"></span>
+<div class="w-full pt-2 grid grid-cols-2 gap-2 text-left font-body-sm text-body-sm">
+<div class="p-3 rounded-lg bg-[#0F172A] border border-[#1F2937]">
+<span class="font-label-xs text-label-xs text-[#94A3B8] block">Actividad Total</span>
+<span class="font-bold text-[#F8FAFC]" id="usr-modal-stats1"></span>
+</div>
+<div class="p-3 rounded-lg bg-[#0F172A] border border-[#1F2937]">
+<span class="font-label-xs text-label-xs text-[#94A3B8] block">Efectividad SLA</span>
+<span class="font-bold text-[#22C55E]" id="usr-modal-stats2"></span>
+</div>
+</div>
+</div>
+<div class="p-space-md bg-[#0F172A] border-t border-[#1F2937] flex justify-end">
+<button class="px-4 py-2 rounded-lg bg-[#3B82F6] text-white font-label-sm text-label-sm font-semibold hover:bg-[#2563eb]" onclick="closeModal('modal-user')" type="button">
+          Cerrar
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- CLIENT JAVASCRIPT: View Routing, Themes, Modals & Micro-interactions -->
+<script>
+  // Global View Navigation Switcher
+  function switchView(viewId) {
+    // Hide all view panes
+    document.querySelectorAll('.view-pane').forEach(el => {
+      el.classList.add('hidden');
+      el.classList.remove('flex');
+    });
+
+    // Reveal target view
+    const target = document.getElementById('view-' + viewId);
+    if (target) {
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+    }
+
+    // Update active state in sub-nav
+    document.querySelectorAll('.view-tab-btn').forEach(btn => {
+      if (btn.getAttribute('data-nav-btn') === viewId) {
+        btn.classList.add('bg-[#3B82F6]', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-[#1E293B]', 'text-[#94A3B8]');
+      } else {
+        btn.classList.remove('bg-[#3B82F6]', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-[#1E293B]', 'text-[#94A3B8]');
+      }
+    });
+
+    // Close any open menus
+    closeAllUserDropdowns();
+  }
+
+  // Dark/Light Theme Switcher Toggle
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    const icon = document.getElementById('theme-icon');
+    if (icon) {
+      icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+  }
+
+  // Accordion Expand/Collapse for Agents
+  function toggleAccordion(id) {
+    const el = document.getElementById(id);
+    const icon = document.getElementById('icon-' + id);
+    if (el) {
+      const isHidden = el.classList.contains('hidden');
+      if (isHidden) {
+        el.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        el.classList.add('hidden');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+    }
+  }
+
+  // Contextual dropdown menu for user table actions
+  function toggleUserDropdown(event, id) {
+    event.stopPropagation();
+    const drop = document.getElementById('drop-' + id);
+    const isClosed = drop.classList.contains('hidden');
+    closeAllUserDropdowns();
+    if (isClosed) {
+      drop.classList.remove('hidden');
+      drop.classList.add('flex');
+    }
+  }
+
+  function closeAllUserDropdowns() {
+    document.querySelectorAll('.user-menu').forEach(menu => {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+    });
+  }
+  document.addEventListener('click', closeAllUserDropdowns);
+
+  // Stack Trace Modal Display
+  function showStackTrace(title, trace) {
+    document.getElementById('stack-title').textContent = title;
+    document.getElementById('stack-content').textContent = trace;
+    const modal = document.getElementById('modal-stack');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function copyStackTrace() {
+    const text = document.getElementById('stack-content').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Traza copiada al portapapeles');
+    });
+  }
+
+  // Agent Config Modal
+  function openConfigModal(name) {
+    document.getElementById('config-title').textContent = 'Configurador: ' + name;
+    document.getElementById('config-name-input').value = name;
+    const modal = document.getElementById('modal-config');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function saveAgentConfig(e) {
+    e.preventDefault();
+    alert('Configuración guardada y sincronizada en clúster v2.4.1.');
+    closeModal('modal-config');
+  }
+
+  // Contract Breakdown Modal
+  function openContractBreakdown(client, total, date, items) {
+    document.getElementById('contract-modal-client').textContent = client;
+    document.getElementById('contract-modal-total').textContent = total;
+    const list = document.getElementById('contract-modal-items');
+    list.innerHTML = '';
+    items.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'flex items-center gap-2 p-2 rounded bg-[#0F172A] border border-[#1F2937]';
+      li.innerHTML = '<span class="material-symbols-outlined text-[16px] text-[#3B82F6]">check_circle</span>' + item;
+      list.appendChild(li);
+    });
+    const modal = document.getElementById('modal-contract');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  // User Detail Modal
+  function openDetailModal(name, role, email, stats1, stats2) {
+    closeAllUserDropdowns();
+    document.getElementById('usr-modal-name').textContent = name;
+    document.getElementById('usr-modal-email').textContent = email;
+    document.getElementById('usr-modal-role').textContent = role;
+    document.getElementById('usr-modal-stats1').textContent = stats1;
+    document.getElementById('usr-modal-stats2').textContent = stats2;
+    document.getElementById('usr-modal-avatar').textContent = name.split(' ').map(n => n[0]).join('');
+    const modal = document.getElementById('modal-user');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function confirmDeleteUser(name) {
+    closeAllUserDropdowns();
+    if (confirm('¿Confirmas revocar credenciales y eliminar a ' + name + '?')) {
+      alert('Operador ' + name + ' desvinculado con éxito.');
+    }
+  }
+
+  // Error Resolvers
+  function resolveSingleError(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.style.opacity = '0.4';
+      el.style.pointerEvents = 'none';
+      setTimeout(() => {
+        el.remove();
+        alert('Incidente marcado como resuelto.');
+      }, 300);
+    }
+  }
+
+  function resolveAllErrors() {
+    if (confirm('¿Marcar todas las excepciones como auditadas y resueltas?')) {
+      const container = document.getElementById('incidents-container');
+      if (container) {
+        container.innerHTML = '<div class="p-8 text-center bg-[#111827] border border-[#1F2937] rounded-xl font-body-sm text-body-sm text-[#94A3B8] flex flex-col items-center gap-2"><span class="material-symbols-outlined text-[#22C55E] text-[40px]">check_circle</span>No existen incidentes pendientes. Todos los sistemas nominales.</div>';
+      }
+    }
+  }
+
+  // Generic Close Modal
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+</script></main></div></body></html>
